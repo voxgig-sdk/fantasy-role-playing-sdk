@@ -1,0 +1,73 @@
+{
+  "existing": {
+    "roll": {
+      "ROLL00": {
+        "advantage": [],
+        "attribute": {},
+        "class": "s8e",
+        "description": "s8f",
+        "disadvantage": [],
+        "id": "ROLL00",
+        "item": [],
+        "level": "s93",
+        "name": "s94",
+        "property": {},
+        "race": "s96",
+        "rarity": "s97",
+        "skill": [],
+        "type": "s99"
+      },
+      "ROLL01": {
+        "advantage": [],
+        "attribute": {},
+        "class": "s11a",
+        "description": "s11b",
+        "disadvantage": [],
+        "id": "ROLL01",
+        "item": [],
+        "level": "s11f",
+        "name": "s120",
+        "property": {},
+        "race": "s122",
+        "rarity": "s123",
+        "skill": [],
+        "type": "s125"
+      },
+      "ROLL02": {
+        "advantage": [],
+        "attribute": {},
+        "class": "s1a6",
+        "description": "s1a7",
+        "disadvantage": [],
+        "id": "ROLL02",
+        "item": [],
+        "level": "s1ab",
+        "name": "s1ac",
+        "property": {},
+        "race": "s1ae",
+        "rarity": "s1af",
+        "skill": [],
+        "type": "s1b1"
+      }
+    }
+  },
+  "new": {
+    "roll": {
+      "roll_ref01": {
+        "advantage": [],
+        "attribute": {},
+        "class": "s232",
+        "description": "s233",
+        "disadvantage": [],
+        "item": [],
+        "level": "s237",
+        "name": "s238",
+        "property": {},
+        "race": "s23a",
+        "rarity": "s23b",
+        "skill": [],
+        "type": "s23d"
+      }
+    }
+  }
+}

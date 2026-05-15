@@ -1,0 +1,35 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 6
+  metrics: count: method: 6
+
+  entity: entity: {
+    path: "/advantages": {
+      op: list: method: *GET
+    }
+    path: "/disadvantages": {
+      op: list: method: *GET
+    }
+    path: "/skills": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: roll: {
+    path: "/roll/character": {
+      action: "character": {}
+      op: list: method: *GET
+    }
+    path: "/roll/item": {
+      action: "item": {}
+      op: load: method: *GET
+    }
+    path: "/roll/set": {
+      action: "set": {}
+      op: list: method: *GET
+    }
+  }
+
+}

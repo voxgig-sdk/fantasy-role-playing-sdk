@@ -1,0 +1,146 @@
+# Entity: roll
+
+main: kit: entity: roll: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "advantage"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "attribute"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "class"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "disadvantage"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "item"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "level"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "property"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "race"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rarity"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "skill"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "roll"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/roll/character"
+          parts: [
+            "roll"
+            "character"
+          ]
+          select: {
+            "$action": "character"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/roll/set"
+          parts: [
+            "roll"
+            "set"
+          ]
+          select: {
+            "$action": "set"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/roll/item"
+          parts: [
+            "roll"
+            "item"
+          ]
+          select: {
+            "$action": "item"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

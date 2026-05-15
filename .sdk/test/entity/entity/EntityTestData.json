@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "entity": {
+      "ENTITY00": {
+        "description": "s1e",
+        "id": "ENTITY00",
+        "name": "s20"
+      },
+      "ENTITY01": {
+        "description": "s3c",
+        "id": "ENTITY01",
+        "name": "s3e"
+      },
+      "ENTITY02": {
+        "description": "s5a",
+        "id": "ENTITY02",
+        "name": "s5c"
+      }
+    }
+  },
+  "new": {
+    "entity": {
+      "entity_ref01": {
+        "description": "s78",
+        "name": "s7a"
+      }
+    }
+  }
+}

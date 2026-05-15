@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://set.world"
+      }
+      description: "Set API allows users to query and generate entities within a fantasy role-playing world. It supports various actions such as rolling items and characters via HTTP GET requests, making it easily accessible and compatible with JSON, CURL, and CORS."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://set.world/api"
+        }
+      ]
+      title: "Fantasy Role Playing API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

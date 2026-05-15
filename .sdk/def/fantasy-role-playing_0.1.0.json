@@ -1,0 +1,326 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fantasy Role Playing API",
+    "description": "Set API allows users to query and generate entities within a fantasy role-playing world. It supports various actions such as rolling items and characters via HTTP GET requests, making it easily accessible and compatible with JSON, CURL, and CORS.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://set.world"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://set.world/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/advantages": {
+      "get": {
+        "summary": "Get advantages",
+        "description": "Retrieve a list of advantages available in the fantasy role-playing world",
+        "operationId": "getAdvantages",
+        "tags": [
+          "Entities"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with advantages list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique identifier for the advantage"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the advantage"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Description of the advantage"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/disadvantages": {
+      "get": {
+        "summary": "Get disadvantages",
+        "description": "Retrieve a list of disadvantages available in the fantasy role-playing world",
+        "operationId": "getDisadvantages",
+        "tags": [
+          "Entities"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with disadvantages list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique identifier for the disadvantage"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the disadvantage"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Description of the disadvantage"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/skills": {
+      "get": {
+        "summary": "Get skills",
+        "description": "Retrieve a list of skills available in the fantasy role-playing world",
+        "operationId": "getSkills",
+        "tags": [
+          "Entities"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with skills list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique identifier for the skill"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the skill"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Description of the skill"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roll/item": {
+      "get": {
+        "summary": "Roll an item",
+        "description": "Generate a random item in the fantasy role-playing world",
+        "operationId": "rollItem",
+        "tags": [
+          "Roll"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with generated item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the item"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the item"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "Type or category of the item"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Description of the item"
+                    },
+                    "rarity": {
+                      "type": "string",
+                      "description": "Rarity level of the item"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "description": "Additional properties of the item"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roll/set": {
+      "get": {
+        "summary": "Roll a set",
+        "description": "Generate a random set in the fantasy role-playing world",
+        "operationId": "rollSet",
+        "tags": [
+          "Roll"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with generated set",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the set"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the set"
+                    },
+                    "items": {
+                      "type": "array",
+                      "description": "Items included in the set",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Description of the set"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roll/character": {
+      "get": {
+        "summary": "Roll a character",
+        "description": "Generate a random character in the fantasy role-playing world",
+        "operationId": "rollCharacter",
+        "tags": [
+          "Roll"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with generated character",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the character"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the character"
+                    },
+                    "race": {
+                      "type": "string",
+                      "description": "Race of the character"
+                    },
+                    "class": {
+                      "type": "string",
+                      "description": "Class of the character"
+                    },
+                    "level": {
+                      "type": "integer",
+                      "description": "Level of the character"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "description": "Character attributes and stats",
+                      "properties": {
+                        "strength": {
+                          "type": "integer"
+                        },
+                        "dexterity": {
+                          "type": "integer"
+                        },
+                        "constitution": {
+                          "type": "integer"
+                        },
+                        "intelligence": {
+                          "type": "integer"
+                        },
+                        "wisdom": {
+                          "type": "integer"
+                        },
+                        "charisma": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "skills": {
+                      "type": "array",
+                      "description": "Character skills",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "advantages": {
+                      "type": "array",
+                      "description": "Character advantages",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "disadvantages": {
+                      "type": "array",
+                      "description": "Character disadvantages",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Entities",
+      "description": "Query available entities in the fantasy world"
+    },
+    {
+      "name": "Roll",
+      "description": "Generate random entities via rolling"
+    }
+  ]
+}
