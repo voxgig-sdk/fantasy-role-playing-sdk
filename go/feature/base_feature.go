@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/fantasy-role-playing-sdk/core"
+	"github.com/voxgig-sdk/fantasy-role-playing-sdk/go/core"
 )
 
 type BaseFeature struct {

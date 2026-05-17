@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/fantasy-role-playing-sdk/core"
+	"github.com/voxgig-sdk/fantasy-role-playing-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fantasy-role-playing-sdk/go/utility/struct"
 )
 
 type EntityEntity struct {

@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/fantasy-role-playing-sdk/core"
+import "github.com/voxgig-sdk/fantasy-role-playing-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll

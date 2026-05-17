@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fantasy-role-playing-sdk"
+	sdk "github.com/voxgig-sdk/fantasy-role-playing-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fantasy-role-playing-sdk/go/utility/struct"
 )
 
 var envLocalOnce sync.Once

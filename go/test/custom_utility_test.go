@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fantasy-role-playing-sdk"
+	sdk "github.com/voxgig-sdk/fantasy-role-playing-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

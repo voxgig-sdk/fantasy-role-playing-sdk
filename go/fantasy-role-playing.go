@@ -1,10 +1,10 @@
 package voxgigfantasyroleplayingsdk
 
 import (
-	"github.com/voxgig-sdk/fantasy-role-playing-sdk/core"
-	"github.com/voxgig-sdk/fantasy-role-playing-sdk/entity"
-	"github.com/voxgig-sdk/fantasy-role-playing-sdk/feature"
-	_ "github.com/voxgig-sdk/fantasy-role-playing-sdk/utility"
+	"github.com/voxgig-sdk/fantasy-role-playing-sdk/go/core"
+	"github.com/voxgig-sdk/fantasy-role-playing-sdk/go/entity"
+	"github.com/voxgig-sdk/fantasy-role-playing-sdk/go/feature"
+	_ "github.com/voxgig-sdk/fantasy-role-playing-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

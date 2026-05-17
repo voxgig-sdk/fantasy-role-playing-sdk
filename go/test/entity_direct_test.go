@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fantasy-role-playing-sdk"
-	"github.com/voxgig-sdk/fantasy-role-playing-sdk/core"
+	sdk "github.com/voxgig-sdk/fantasy-role-playing-sdk/go"
+	"github.com/voxgig-sdk/fantasy-role-playing-sdk/go/core"
 )
 
 func TestEntityDirect(t *testing.T) {

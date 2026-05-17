@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/fantasy-role-playing-sdk/core"
+	"github.com/voxgig-sdk/fantasy-role-playing-sdk/go/core"
 )
 
 type LogFeature struct {
