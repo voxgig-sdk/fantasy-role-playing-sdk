@@ -68,14 +68,12 @@ function entity_direct_setup($mockres)
     $env = Runner::env_override([
         "FANTASYROLEPLAYING_TEST_ENTITY_ENTID" => [],
         "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
-        "FANTASYROLEPLAYING_APIKEY" => "NONE",
     ]);
 
     $live = $env["FANTASYROLEPLAYING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["FANTASYROLEPLAYING_APIKEY"],
         ];
         $client = new FantasyRolePlayingSDK($merged_opts);
         return [

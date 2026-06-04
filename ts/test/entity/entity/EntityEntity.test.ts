@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'FANTASY_ROLE_PLAYING_TEST_ENTITY_ENTID': idmap,
     'FANTASY_ROLE_PLAYING_TEST_LIVE': 'FALSE',
     'FANTASY_ROLE_PLAYING_TEST_EXPLAIN': 'FALSE',
-    'FANTASY_ROLE_PLAYING_APIKEY': 'NONE',
   })
 
   idmap = env['FANTASY_ROLE_PLAYING_TEST_ENTITY_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FantasyRolePlayingSDK(merge([
       {
-        apikey: env.FANTASY_ROLE_PLAYING_APIKEY,
       },
       extra
     ]))

@@ -16,7 +16,18 @@
           }
         ],
         "title": "Fantasy Role Playing API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Query and roll fantasy RPG characters, items, and sets over plain HTTP GET — JSON, CORS, no auth",
+        "homepage": "https://set.world/",
+        "docs_url": "https://set.world/api/spec",
+        "license_short": "No explicit licence published; treat content as provided for free developer use.",
+        "license_md": "- No formal licence is published on the homepage or docs.\n- The service describes itself as freely usable: every character, item, and attribute is given through stateless query.\n- No attribution requirement is stated, but linking back to set.world is courteous.\n- Confirm terms with the operator before relying on the data in a commercial product.",
+        "about_md": "[Set](https://set.world/) is a free, stateless fantasy role-playing API. It generates characters, items, and item sets on demand, and exposes related systems for skills, crafting, and a simple orb-based economy.\n\nWhat you get from the API:\n\n- Character rolls with stats, skills, advantages, and disadvantages\n- Item and set rolls with rarity tiers (F through S grades)\n- Reference data covering skills, classes, and equipment slots\n- Crafting and stat-boost mechanics tied to an orb economy\n- Monster loot calculations driven by encounter difficulty\n\nAll endpoints are plain HTTP `GET` requests that return JSON. No authentication is required, and CORS is enabled so the API can be called directly from the browser. Endpoint specifications are published at `/api/spec`, with longer-form guides under `/api/skill` and `/api/craft-guide`.",
+        "entity_desc": {
+          "entity": "Reference resources describing the building blocks of the world — skills, classes, equipment slots and similar lookups served as JSON.",
+          "roll": "Generators that produce randomised content on demand, including characters at `GET /api/roll/character` and item sets at `GET /api/roll/set`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +35,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "entity": {
