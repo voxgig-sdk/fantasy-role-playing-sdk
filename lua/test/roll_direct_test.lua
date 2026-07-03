@@ -107,12 +107,14 @@ function roll_direct_setup(mockres)
   local env = runner.env_override({
     ["FANTASYROLEPLAYING_TEST_ROLL_ENTID"] = {},
     ["FANTASYROLEPLAYING_TEST_LIVE"] = "FALSE",
+    ["FANTASYROLEPLAYING_APIKEY"] = "NONE",
   })
 
   local live = env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["FANTASYROLEPLAYING_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

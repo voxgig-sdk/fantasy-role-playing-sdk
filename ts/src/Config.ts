@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://set.world/api',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -58,79 +62,79 @@ class Config {
     "entity": {
       "fields": [
         {
+          "active": true,
           "name": "description",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "id",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "name",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         }
       ],
       "name": "entity",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/advantages",
               "parts": [
                 "advantages"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/disadvantages",
               "parts": [
                 "disadvantages"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 1
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/skills",
               "parts": [
                 "skills"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 2
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },
@@ -141,110 +145,113 @@ class Config {
     "roll": {
       "fields": [
         {
+          "active": true,
           "name": "advantage",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "attribute",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "class",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "description",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "disadvantage",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "id",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "item",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "level",
           "req": false,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 7
         },
         {
+          "active": true,
           "name": "name",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 8
         },
         {
+          "active": true,
           "name": "property",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 9
         },
         {
+          "active": true,
           "name": "race",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 10
         },
         {
+          "active": true,
           "name": "rarity",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 11
         },
         {
+          "active": true,
           "name": "skill",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 12
         },
         {
+          "active": true,
           "name": "type",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 13
         }
       ],
       "name": "roll",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/roll/character",
               "parts": [
@@ -258,11 +265,11 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 0
             },
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/roll/set",
               "parts": [
@@ -276,18 +283,18 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "list"
         },
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/roll/item",
               "parts": [
@@ -301,12 +308,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },

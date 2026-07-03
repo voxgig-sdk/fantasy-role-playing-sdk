@@ -83,6 +83,7 @@ def entity_basic_setup(extra)
     "FANTASYROLEPLAYING_TEST_ENTITY_ENTID" => idmap,
     "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
     "FANTASYROLEPLAYING_TEST_EXPLAIN" => "FALSE",
+    "FANTASYROLEPLAYING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def entity_basic_setup(extra)
   if env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["FANTASYROLEPLAYING_APIKEY"],
       },
       extra || {},
     ])

@@ -1,22 +1,8 @@
 # FantasyRolePlaying SDK
 
-Query and roll fantasy RPG characters, items, and sets over plain HTTP GET — JSON, CORS, no auth
+Fantasy Role Playing API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Fantasy Role Playing API
-
-[Set](https://set.world/) is a free, stateless fantasy role-playing API. It generates characters, items, and item sets on demand, and exposes related systems for skills, crafting, and a simple orb-based economy.
-
-What you get from the API:
-
-- Character rolls with stats, skills, advantages, and disadvantages
-- Item and set rolls with rarity tiers (F through S grades)
-- Reference data covering skills, classes, and equipment slots
-- Crafting and stat-boost mechanics tied to an orb economy
-- Monster loot calculations driven by encounter difficulty
-
-All endpoints are plain HTTP `GET` requests that return JSON. No authentication is required, and CORS is enabled so the API can be called directly from the browser. Endpoint specifications are published at `/api/spec`, with longer-form guides under `/api/skill` and `/api/craft-guide`.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install fantasy-role-playing-sdk
 luarocks install fantasy-role-playing-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FantasyRolePlayingSDK } from 'fantasy-role-playing'
 
-const client = new FantasyRolePlayingSDK({})
+const client = new FantasyRolePlayingSDK({
+  apikey: process.env.FANTASY-ROLE-PLAYING_APIKEY,
+})
 
 // List all entitys
 const entitys = await client.Entity().list()
+console.log(entitys.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Entity** | Reference resources describing the building blocks of the world — skills, classes, equipment slots and similar lookups served as JSON. | `/advantages` |
-| **Roll** | Generators that produce randomised content on demand, including characters at `GET /api/roll/character` and item sets at `GET /api/roll/set`. | `/roll/character` |
+| **Entity** |  | `/advantages` |
+| **Roll** |  | `/roll/character` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -113,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from fantasyroleplaying_sdk import FantasyRolePlayingSDK
 
-client = FantasyRolePlayingSDK({})
+client = FantasyRolePlayingSDK({
+    "apikey": os.environ.get("FANTASY-ROLE-PLAYING_APIKEY"),
+})
 
 # List all entitys
-entitys, err = client.Entity(None).list(None, None)
+entitys, err = client.Entity().list()
+print(entitys)
 ```
 
 ### PHP
@@ -127,10 +119,13 @@ entitys, err = client.Entity(None).list(None, None)
 <?php
 require_once 'fantasyroleplaying_sdk.php';
 
-$client = new FantasyRolePlayingSDK([]);
+$client = new FantasyRolePlayingSDK([
+    "apikey" => getenv("FANTASY-ROLE-PLAYING_APIKEY"),
+]);
 
 // List all entitys
-[$entitys, $err] = $client->Entity(null)->list(null, null);
+[$entitys, $err] = $client->Entity()->list();
+print_r($entitys);
 ```
 
 ### Golang
@@ -138,10 +133,13 @@ $client = new FantasyRolePlayingSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/fantasy-role-playing-sdk/go"
 
-client := sdk.NewFantasyRolePlayingSDK(map[string]any{})
+client := sdk.NewFantasyRolePlayingSDK(map[string]any{
+    "apikey": os.Getenv("FANTASY-ROLE-PLAYING_APIKEY"),
+})
 
 // List all entitys
 entitys, err := client.Entity(nil).List(nil, nil)
+fmt.Println(entitys)
 ```
 
 ### Ruby
@@ -149,10 +147,13 @@ entitys, err := client.Entity(nil).List(nil, nil)
 ```ruby
 require_relative "FantasyRolePlaying_sdk"
 
-client = FantasyRolePlayingSDK.new({})
+client = FantasyRolePlayingSDK.new({
+  "apikey" => ENV["FANTASY-ROLE-PLAYING_APIKEY"],
+})
 
 # List all entitys
-entitys, err = client.Entity(nil).list(nil, nil)
+entitys, err = client.Entity().list
+puts entitys
 ```
 
 ### Lua
@@ -160,10 +161,13 @@ entitys, err = client.Entity(nil).list(nil, nil)
 ```lua
 local sdk = require("fantasy-role-playing_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FANTASY-ROLE-PLAYING_APIKEY"),
+})
 
 -- List all entitys
-local entitys, err = client:Entity(nil):list(nil, nil)
+local entitys, err = client:Entity():list()
+print(entitys)
 ```
 
 ## Unit testing in offline mode
@@ -182,25 +186,21 @@ const result = await client.Entity().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FantasyRolePlayingSDK.test(None, None)
-result, err = client.Entity(None).load(
-    {"id": "test01"}, None
-)
+client = FantasyRolePlayingSDK.test()
+result, err = client.Entity().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FantasyRolePlayingSDK::test(null, null);
-[$result, $err] = $client->Entity(null)->load(
-    ["id" => "test01"], null
-);
+$client = FantasyRolePlayingSDK::test();
+[$result, $err] = $client->Entity()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Entity(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -209,19 +209,15 @@ result, err := client.Entity(nil).Load(
 ### Ruby
 
 ```ruby
-client = FantasyRolePlayingSDK.test(nil, nil)
-result, err = client.Entity(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FantasyRolePlayingSDK.test
+result, err = client.Entity().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Entity(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Entity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -325,16 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Fantasy Role Playing API
-
-- Upstream: [https://set.world/](https://set.world/)
-- API docs: [https://set.world/api/spec](https://set.world/api/spec)
-
-- No formal licence is published on the homepage or docs.
-- The service describes itself as freely usable: every character, item, and attribute is given through stateless query.
-- No attribution requirement is stated, but linking back to set.world is courteous.
-- Confirm terms with the operator before relying on the data in a commercial product.
 
 ---
 

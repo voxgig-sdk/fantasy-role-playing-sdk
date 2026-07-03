@@ -102,6 +102,7 @@ def _roll_basic_setup(extra):
         "FANTASYROLEPLAYING_TEST_ROLL_ENTID": idmap,
         "FANTASYROLEPLAYING_TEST_LIVE": "FALSE",
         "FANTASYROLEPLAYING_TEST_EXPLAIN": "FALSE",
+        "FANTASYROLEPLAYING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -112,6 +113,7 @@ def _roll_basic_setup(extra):
     if env.get("FANTASYROLEPLAYING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("FANTASYROLEPLAYING_APIKEY"),
             },
             extra or {},
         ])

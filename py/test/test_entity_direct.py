@@ -61,12 +61,14 @@ def _entity_direct_setup(mockres):
     env = runner.env_override({
         "FANTASYROLEPLAYING_TEST_ENTITY_ENTID": {},
         "FANTASYROLEPLAYING_TEST_LIVE": "FALSE",
+        "FANTASYROLEPLAYING_APIKEY": "NONE",
     })
 
     live = env.get("FANTASYROLEPLAYING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("FANTASYROLEPLAYING_APIKEY"),
         }
         client = FantasyRolePlayingSDK(merged_opts)
         return {

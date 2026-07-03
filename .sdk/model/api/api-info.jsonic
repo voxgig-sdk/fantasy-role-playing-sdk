@@ -16,30 +16,7 @@ main: {
       ]
       title: "Fantasy Role Playing API"
       version: "1.0.0"
-      tagline: "Query and roll fantasy RPG characters, items, and sets over plain HTTP GET — JSON, CORS, no auth"
-      homepage: "https://set.world/"
-      docs_url: "https://set.world/api/spec"
-      license_short: "No explicit licence published; treat content as provided for free developer use."
-      license_md: `- No formal licence is published on the homepage or docs.
-- The service describes itself as freely usable: every character, item, and attribute is given through stateless query.
-- No attribution requirement is stated, but linking back to set.world is courteous.
-- Confirm terms with the operator before relying on the data in a commercial product.`
-      about_md: `[Set](https://set.world/) is a free, stateless fantasy role-playing API. It generates characters, items, and item sets on demand, and exposes related systems for skills, crafting, and a simple orb-based economy.
-
-What you get from the API:
-
-- Character rolls with stats, skills, advantages, and disadvantages
-- Item and set rolls with rarity tiers (F through S grades)
-- Reference data covering skills, classes, and equipment slots
-- Crafting and stat-boost mechanics tied to an orb economy
-- Monster loot calculations driven by encounter difficulty
-
-All endpoints are plain HTTP \`GET\` requests that return JSON. No authentication is required, and CORS is enabled so the API can be called directly from the browser. Endpoint specifications are published at \`/api/spec\`, with longer-form guides under \`/api/skill\` and \`/api/craft-guide\`.`
-      entity_desc: {
-        entity: "Reference resources describing the building blocks of the world — skills, classes, equipment slots and similar lookups served as JSON."
-        roll: "Generators that produce randomised content on demand, including characters at `GET /api/roll/character` and item sets at `GET /api/roll/set`."
-      }
-      auth: false
     }
   }
 }
+

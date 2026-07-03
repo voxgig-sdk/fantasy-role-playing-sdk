@@ -164,12 +164,14 @@ func rollDirectSetup(mockres any) *rollDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FANTASYROLEPLAYING_TEST_ROLL_ENTID": map[string]any{},
 		"FANTASYROLEPLAYING_TEST_LIVE":    "FALSE",
+		"FANTASYROLEPLAYING_APIKEY":       "NONE",
 	})
 
 	live := env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["FANTASYROLEPLAYING_APIKEY"],
 		}
 		client := sdk.NewFantasyRolePlayingSDK(mergedOpts)
 
