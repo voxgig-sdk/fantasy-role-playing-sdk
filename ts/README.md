@@ -10,7 +10,7 @@ The TypeScript SDK for the FantasyRolePlaying API — a type-safe, entity-orient
 
 ## Install
 ```bash
-npm install fantasy-role-playing
+npm install @voxgig-sdk/fantasy-role-playing
 ```
 ## Tutorial: your first API call
 

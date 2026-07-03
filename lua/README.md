@@ -10,7 +10,7 @@ The Lua SDK for the FantasyRolePlaying API — an entity-oriented client using L
 
 ## Install
 ```bash
-luarocks install fantasy-role-playing-sdk
+luarocks install voxgig-sdk-fantasy-role-playing
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The PHP SDK for the FantasyRolePlaying API — an entity-oriented client using P
 
 ## Install
 ```bash
-composer require voxgig/fantasy-role-playing-sdk
+composer require voxgig-sdk/fantasy-role-playing
 ```
 
 

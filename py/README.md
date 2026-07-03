@@ -10,7 +10,7 @@ The Python SDK for the FantasyRolePlaying API — an entity-oriented client foll
 
 ## Install
 ```bash
-pip install fantasy-role-playing-sdk
+pip install voxgig-sdk-fantasy-role-playing
 ```
 
 Or install from source:

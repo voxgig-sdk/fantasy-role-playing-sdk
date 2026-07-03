@@ -10,13 +10,13 @@ The Ruby SDK for the FantasyRolePlaying API — an entity-oriented client using 
 
 ## Install
 ```bash
-gem install fantasy-role-playing-sdk
+gem install voxgig-sdk-fantasy-role-playing
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "fantasy-role-playing-sdk"
+gem "voxgig-sdk-fantasy-role-playing"
 ```
 
 Then run:
