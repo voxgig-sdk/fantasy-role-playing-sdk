@@ -245,11 +245,17 @@ func (sdk *FantasyRolePlayingSDK) Direct(fetchargs map[string]any) (map[string]a
 }
 
 
+// Entity returns a Entity entity bound to this client.
+// Idiomatic usage: client.Entity(nil).List(nil, nil) or
+// client.Entity(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FantasyRolePlayingSDK) Entity(data map[string]any) FantasyRolePlayingEntity {
 	return NewEntityEntityFunc(sdk, data)
 }
 
 
+// Roll returns a Roll entity bound to this client.
+// Idiomatic usage: client.Roll(nil).List(nil, nil) or
+// client.Roll(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FantasyRolePlayingSDK) Roll(data map[string]any) FantasyRolePlayingEntity {
 	return NewRollEntityFunc(sdk, data)
 }

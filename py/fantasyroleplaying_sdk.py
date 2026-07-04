@@ -144,16 +144,23 @@ class FantasyRolePlayingSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class FantasyRolePlayingSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,20 +212,42 @@ class FantasyRolePlayingSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def entity(self):
+        """Idiomatic facade: client.entity.list() / client.entity.load({"id": ...})."""
+        from entity.entity_entity import EntityEntity
+        cached = getattr(self, "_entity", None)
+        if cached is None:
+            cached = EntityEntity(self, None)
+            self._entity = cached
+        return cached
 
     def Entity(self, data=None):
+        # Deprecated: use client.entity instead.
         from entity.entity_entity import EntityEntity
         return EntityEntity(self, data)
 
 
+    @property
+    def roll(self):
+        """Idiomatic facade: client.roll.list() / client.roll.load({"id": ...})."""
+        from entity.roll_entity import RollEntity
+        cached = getattr(self, "_roll", None)
+        if cached is None:
+            cached = RollEntity(self, None)
+            self._roll = cached
+        return cached
+
     def Roll(self, data=None):
+        # Deprecated: use client.roll instead.
         from entity.roll_entity import RollEntity
         return RollEntity(self, data)
 

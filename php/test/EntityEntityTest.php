@@ -50,8 +50,7 @@ class EntityEntityTest extends TestCase
         $entity_ref01_ent = $client->Entity(null);
         $entity_ref01_match = [];
 
-        [$entity_ref01_list_result, $err] = $entity_ref01_ent->list($entity_ref01_match, null);
-        $this->assertNull($err);
+        $entity_ref01_list_result = $entity_ref01_ent->list($entity_ref01_match, null);
         $this->assertIsArray($entity_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function entity_basic_setup($extra)
         "FANTASYROLEPLAYING_TEST_ENTITY_ENTID" => $idmap,
         "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
         "FANTASYROLEPLAYING_TEST_EXPLAIN" => "FALSE",
-        "FANTASYROLEPLAYING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function entity_basic_setup($extra)
     if ($env["FANTASYROLEPLAYING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["FANTASYROLEPLAYING_APIKEY"],
             ],
             $extra ?? [],
         ]);

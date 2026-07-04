@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## EntityEntity
 
 ```lua
-local entity = client:Entity(nil)
+local entity = client:entity(nil)
 ```
 
 ### Fields
@@ -106,7 +105,7 @@ local entity = client:Entity(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Entity():list()
+local results, err = client:entity():list()
 ```
 
 ### Common Methods
@@ -142,7 +141,7 @@ Return the entity name.
 ## RollEntity
 
 ```lua
-local roll = client:Roll(nil)
+local roll = client:roll(nil)
 ```
 
 ### Fields
@@ -171,7 +170,7 @@ local roll = client:Roll(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Roll():list()
+local results, err = client:roll():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -179,7 +178,7 @@ local results, err = client:Roll():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Roll():load({ id = "roll_id" })
+local result, err = client:roll():load({ id = "roll_id" })
 ```
 
 ### Common Methods

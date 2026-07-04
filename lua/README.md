@@ -9,12 +9,9 @@ The Lua SDK for the FantasyRolePlaying API — an entity-oriented client using L
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-fantasy-role-playing
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("fantasy-role-playing_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("FANTASY-ROLE-PLAYING_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List entitys
 
 ```lua
-local result, err = client:Entity():list()
+local result, err = client:entity():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:FantasyRolePlaying():load({ id = "test01" })
+local result, err = client:entity():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-FANTASY-ROLE-PLAYING_TEST_LIVE=TRUE
-FANTASY-ROLE-PLAYING_APIKEY=<your-key>
+FANTASY_ROLE_PLAYING_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -253,7 +246,7 @@ API path: `/roll/character`
 
 ### Entity
 
-Create an instance: `const entity = client.Entity()`
+Create an instance: `const entity = client.entity`
 
 #### Operations
 
@@ -272,13 +265,13 @@ Create an instance: `const entity = client.Entity()`
 #### Example: List
 
 ```ts
-const entitys = await client.Entity().list()
+const entitys = await client.entity.list()
 ```
 
 
 ### Roll
 
-Create an instance: `const roll = client.Roll()`
+Create an instance: `const roll = client.roll`
 
 #### Operations
 
@@ -309,13 +302,13 @@ Create an instance: `const roll = client.Roll()`
 #### Example: Load
 
 ```ts
-const roll = await client.Roll().load({ id: 'roll_id' })
+const roll = await client.roll.load({ id: 'roll_id' })
 ```
 
 #### Example: List
 
 ```ts
-const rolls = await client.Roll().list()
+const rolls = await client.roll.list()
 ```
 
 
@@ -390,11 +383,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local entity = client:entity()
+entity:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- entity:data_get() now returns the loaded entity data
+-- entity:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

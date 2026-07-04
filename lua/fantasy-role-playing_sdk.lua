@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:entity():list() / client:entity():load({ id = ... })
+function FantasyRolePlayingSDK:entity(data)
+  local EntityMod = require("entity.entity_entity")
+  if data == nil then
+    if self._entity == nil then
+      self._entity = EntityMod.new(self, nil)
+    end
+    return self._entity
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:entity() instead.
 function FantasyRolePlayingSDK:Entity(data)
   local EntityMod = require("entity.entity_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:roll():list() / client:roll():load({ id = ... })
+function FantasyRolePlayingSDK:roll(data)
+  local EntityMod = require("entity.roll_entity")
+  if data == nil then
+    if self._roll == nil then
+      self._roll = EntityMod.new(self, nil)
+    end
+    return self._roll
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:roll() instead.
 function FantasyRolePlayingSDK:Roll(data)
   local EntityMod = require("entity.roll_entity")
   return EntityMod.new(self, data)

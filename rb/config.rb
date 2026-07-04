@@ -15,9 +15,6 @@ module FantasyRolePlayingConfig
       },
       "options" => {
         "base" => "https://set.world/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

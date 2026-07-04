@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `FantasyRolePlayingSDK.test()`.
 ## EntityEntity
 
 ```ts
-const entity = client.Entity()
+const entity = client.entity
 ```
 
 ### Fields
@@ -140,7 +139,7 @@ const entity = client.Entity()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Entity().list()
+const results = await client.entity.list()
 ```
 
 ### Common Methods
@@ -174,7 +173,7 @@ Return a copy of the entity options.
 ## RollEntity
 
 ```ts
-const roll = client.Roll()
+const roll = client.roll
 ```
 
 ### Fields
@@ -203,7 +202,7 @@ const roll = client.Roll()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Roll().list()
+const results = await client.roll.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -211,7 +210,7 @@ const results = await client.Roll().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Roll().load({ id: 'roll_id' })
+const result = await client.roll.load({ id: 'roll_id' })
 ```
 
 ### Common Methods

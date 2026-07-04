@@ -43,16 +43,14 @@ class RollEntityTest < Minitest::Test
     roll_ref01_ent = client.Roll(nil)
     roll_ref01_match = {}
 
-    roll_ref01_list_result, err = roll_ref01_ent.list(roll_ref01_match, nil)
-    assert_nil err
+    roll_ref01_list_result = roll_ref01_ent.list(roll_ref01_match, nil)
     assert roll_ref01_list_result.is_a?(Array)
 
     # LOAD
     roll_ref01_match_dt0 = {
       "id" => roll_ref01_data["id"],
     }
-    roll_ref01_data_dt0_loaded, err = roll_ref01_ent.load(roll_ref01_match_dt0, nil)
-    assert_nil err
+    roll_ref01_data_dt0_loaded = roll_ref01_ent.load(roll_ref01_match_dt0, nil)
     roll_ref01_data_dt0_load_result = Helpers.to_map(roll_ref01_data_dt0_loaded)
     assert !roll_ref01_data_dt0_load_result.nil?
     assert_equal roll_ref01_data_dt0_load_result["id"], roll_ref01_data["id"]
@@ -93,7 +91,6 @@ def roll_basic_setup(extra)
     "FANTASYROLEPLAYING_TEST_ROLL_ENTID" => idmap,
     "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
     "FANTASYROLEPLAYING_TEST_EXPLAIN" => "FALSE",
-    "FANTASYROLEPLAYING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +102,6 @@ def roll_basic_setup(extra)
   if env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FANTASYROLEPLAYING_APIKEY"],
       },
       extra || {},
     ])

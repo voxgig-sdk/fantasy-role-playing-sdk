@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Roll,
+  RollLoadMatch,
+  RollListMatch,
+} from '../FantasyRolePlayingTypes'
 
 // TODO: needs Entity superclass
-class RollEntity extends FantasyRolePlayingEntityBase {
+class RollEntity extends FantasyRolePlayingEntityBase<Roll> {
 
   constructor(client: FantasyRolePlayingSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class RollEntity extends FantasyRolePlayingEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: RollLoadMatch, ctrl?: Control): Promise<Roll> {
 
     const utility = this._utility
 
@@ -136,14 +141,16 @@ class RollEntity extends FantasyRolePlayingEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Roll> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: RollListMatch, ctrl?: Control): Promise<Roll[]> {
 
     const utility = this._utility
 
@@ -243,7 +250,9 @@ class RollEntity extends FantasyRolePlayingEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Roll[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

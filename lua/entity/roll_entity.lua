@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch RollLoadMatch
+---@param ctrl? table
+---@return Roll
+---@return string? err
 function RollEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch RollListMatch
+---@param ctrl? table
+---@return Roll[]
+---@return string? err
 function RollEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

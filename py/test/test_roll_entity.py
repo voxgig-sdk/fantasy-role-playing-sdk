@@ -50,16 +50,14 @@ class TestRollEntity:
         roll_ref01_ent = client.Roll(None)
         roll_ref01_match = {}
 
-        roll_ref01_list_result, err = roll_ref01_ent.list(roll_ref01_match, None)
-        assert err is None
+        roll_ref01_list_result = roll_ref01_ent.list(roll_ref01_match, None)
         assert isinstance(roll_ref01_list_result, list)
 
         # LOAD
         roll_ref01_match_dt0 = {
             "id": roll_ref01_data["id"],
         }
-        roll_ref01_data_dt0_loaded, err = roll_ref01_ent.load(roll_ref01_match_dt0, None)
-        assert err is None
+        roll_ref01_data_dt0_loaded = roll_ref01_ent.load(roll_ref01_match_dt0, None)
         roll_ref01_data_dt0_load_result = helpers.to_map(roll_ref01_data_dt0_loaded)
         assert roll_ref01_data_dt0_load_result is not None
         assert roll_ref01_data_dt0_load_result["id"] == roll_ref01_data["id"]
@@ -102,7 +100,6 @@ def _roll_basic_setup(extra):
         "FANTASYROLEPLAYING_TEST_ROLL_ENTID": idmap,
         "FANTASYROLEPLAYING_TEST_LIVE": "FALSE",
         "FANTASYROLEPLAYING_TEST_EXPLAIN": "FALSE",
-        "FANTASYROLEPLAYING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +110,6 @@ def _roll_basic_setup(extra):
     if env.get("FANTASYROLEPLAYING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FANTASYROLEPLAYING_APIKEY"),
             },
             extra or {},
         ])

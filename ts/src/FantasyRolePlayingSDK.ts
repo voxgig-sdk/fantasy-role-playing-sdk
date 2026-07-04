@@ -3,6 +3,8 @@
 import { EntityEntity } from './entity/EntityEntity'
 import { RollEntity } from './entity/RollEntity'
 
+export type * from './FantasyRolePlayingTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class FantasyRolePlayingSDK {
 
 
 
+  _entity?: EntityEntity
+
+  // Idiomatic facade: `client.entity.list()` / `client.entity.load({ id })`.
+  get entity(): EntityEntity {
+    return (this._entity ??= new EntityEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.entity` instead. */
   Entity(data?: any) {
     const self = this
     return new EntityEntity(self,data)
   }
 
 
+  _roll?: RollEntity
+
+  // Idiomatic facade: `client.roll.list()` / `client.roll.load({ id })`.
+  get roll(): RollEntity {
+    return (this._roll ??= new RollEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.roll` instead. */
   Roll(data?: any) {
     const self = this
     return new RollEntity(self,data)

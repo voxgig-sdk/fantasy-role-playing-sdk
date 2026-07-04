@@ -9,9 +9,10 @@ The PHP SDK for the FantasyRolePlaying API — an entity-oriented client using P
 
 
 ## Install
-```bash
-composer require voxgig-sdk/fantasy-role-playing
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,22 +26,22 @@ loading a specific record.
 <?php
 require_once 'fantasyroleplaying_sdk.php';
 
-$client = new FantasyRolePlayingSDK([
-    "apikey" => getenv("FANTASY-ROLE-PLAYING_APIKEY"),
-]);
+$client = new FantasyRolePlayingSDK();
 ```
 
 ### 2. List entitys
 
 ```php
-[$result, $err] = $client->Entity()->list();
-if ($err) { throw new \Exception($err); }
-
-if (is_array($result)) {
-    foreach ($result as $item) {
-        $d = $item->data_get();
-        echo $d["id"] . " " . $d["name"] . "\n";
+try {
+    $result = $client->entity()->list();
+    if (is_array($result)) {
+        foreach ($result as $item) {
+            $d = $item->data_get();
+            echo $d["id"] . " " . $d["name"] . "\n";
+        }
     }
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
 }
 ```
 
@@ -52,28 +53,31 @@ if (is_array($result)) {
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -87,7 +91,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = FantasyRolePlayingSDK::test();
 
-[$result, $err] = $client->FantasyRolePlaying()->load(["id" => "test01"]);
+$result = $client->entity()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -121,8 +125,7 @@ $client = new FantasyRolePlayingSDK([
 Create a `.env.local` file at the project root:
 
 ```
-FANTASY-ROLE-PLAYING_TEST_LIVE=TRUE
-FANTASY-ROLE-PLAYING_APIKEY=<your-key>
+FANTASY_ROLE_PLAYING_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -145,7 +148,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -192,8 +194,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -248,7 +254,7 @@ API path: `/roll/character`
 
 ### Entity
 
-Create an instance: `const entity = client.Entity()`
+Create an instance: `const entity = client.entity`
 
 #### Operations
 
@@ -267,13 +273,13 @@ Create an instance: `const entity = client.Entity()`
 #### Example: List
 
 ```ts
-const entitys = await client.Entity().list()
+const entitys = await client.entity.list()
 ```
 
 
 ### Roll
 
-Create an instance: `const roll = client.Roll()`
+Create an instance: `const roll = client.roll`
 
 #### Operations
 
@@ -304,13 +310,13 @@ Create an instance: `const roll = client.Roll()`
 #### Example: Load
 
 ```ts
-const roll = await client.Roll().load({ id: 'roll_id' })
+const roll = await client.roll.load({ id: 'roll_id' })
 ```
 
 #### Example: List
 
 ```ts
-const rolls = await client.Roll().list()
+const rolls = await client.roll.list()
 ```
 
 
@@ -385,11 +391,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$entity = $client->entity();
+$entity->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $entity->dataGet() now returns the loaded entity data
+// $entity->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

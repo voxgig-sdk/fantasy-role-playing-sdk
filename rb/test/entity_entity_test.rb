@@ -43,8 +43,7 @@ class EntityEntityTest < Minitest::Test
     entity_ref01_ent = client.Entity(nil)
     entity_ref01_match = {}
 
-    entity_ref01_list_result, err = entity_ref01_ent.list(entity_ref01_match, nil)
-    assert_nil err
+    entity_ref01_list_result = entity_ref01_ent.list(entity_ref01_match, nil)
     assert entity_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def entity_basic_setup(extra)
     "FANTASYROLEPLAYING_TEST_ENTITY_ENTID" => idmap,
     "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
     "FANTASYROLEPLAYING_TEST_EXPLAIN" => "FALSE",
-    "FANTASYROLEPLAYING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def entity_basic_setup(extra)
   if env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FANTASYROLEPLAYING_APIKEY"],
       },
       extra || {},
     ])

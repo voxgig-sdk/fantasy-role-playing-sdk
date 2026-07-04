@@ -119,7 +119,6 @@ func entityBasicSetup(extra map[string]any) *entityTestSetup {
 		"FANTASYROLEPLAYING_TEST_ENTITY_ENTID": idmap,
 		"FANTASYROLEPLAYING_TEST_LIVE":      "FALSE",
 		"FANTASYROLEPLAYING_TEST_EXPLAIN":   "FALSE",
-		"FANTASYROLEPLAYING_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FANTASYROLEPLAYING_TEST_ENTITY_ENTID"])
@@ -130,7 +129,6 @@ func entityBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["FANTASYROLEPLAYING_APIKEY"],
 			},
 			extra,
 		})
