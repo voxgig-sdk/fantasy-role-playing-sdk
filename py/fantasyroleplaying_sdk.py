@@ -220,41 +220,21 @@ class FantasyRolePlayingSDK:
         }
 
 
-    @property
-    def entity(self):
-        """Idiomatic facade: client.entity.list() / client.entity.load({"id": ...})."""
-        from entity.entity_entity import EntityEntity
-        cached = getattr(self, "_entity", None)
-        if cached is None:
-            cached = EntityEntity(self, None)
-            self._entity = cached
-        return cached
-
-    def Entity(self, data=None):
-        # Deprecated: use client.entity instead.
+    def Entity(self, data=None) -> "EntityEntity":
+        """Entity factory: client.Entity().list({}) / client.Entity().load({"id": ...})."""
         from entity.entity_entity import EntityEntity
         return EntityEntity(self, data)
 
 
-    @property
-    def roll(self):
-        """Idiomatic facade: client.roll.list() / client.roll.load({"id": ...})."""
-        from entity.roll_entity import RollEntity
-        cached = getattr(self, "_roll", None)
-        if cached is None:
-            cached = RollEntity(self, None)
-            self._roll = cached
-        return cached
-
-    def Roll(self, data=None):
-        # Deprecated: use client.roll instead.
+    def Roll(self, data=None) -> "RollEntity":
+        """Entity factory: client.Roll().list({}) / client.Roll().load({"id": ...})."""
         from entity.roll_entity import RollEntity
         return RollEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "FantasyRolePlayingSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class FantasyRolePlayingSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.entity_entity import EntityEntity
+    from entity.roll_entity import RollEntity

@@ -208,26 +208,14 @@ class FantasyRolePlayingSDK
   end
 
 
-  # Idiomatic facade: client.entity.list / client.entity.load({ "id" => ... })
-  def entity
-    require_relative 'entity/entity_entity'
-    @entity ||= EntityEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.entity instead.
+  # Canonical facade: client.Entity.list / client.Entity.load({ "id" => ... })
   def Entity(data = nil)
     require_relative 'entity/entity_entity'
     EntityEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.roll.list / client.roll.load({ "id" => ... })
-  def roll
-    require_relative 'entity/roll_entity'
-    @roll ||= RollEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.roll instead.
+  # Canonical facade: client.Roll.list / client.Roll.load({ "id" => ... })
   def Roll(data = nil)
     require_relative 'entity/roll_entity'
     RollEntity.new(self, data)

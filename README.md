@@ -26,9 +26,11 @@ import { FantasyRolePlayingSDK } from '@voxgig-sdk/fantasy-role-playing'
 
 const client = new FantasyRolePlayingSDK()
 
-// List all entitys
-const entitys = await client.entity.list()
-console.log(entitys.data)
+// List all entitys (returns Entity[])
+const entitys = await client.Entity().list()
+for (const entity of entitys) {
+  console.log(entity)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,9 +86,10 @@ from fantasyroleplaying_sdk import FantasyRolePlayingSDK
 
 client = FantasyRolePlayingSDK()
 
-# List all entitys
-entitys = client.entity.list()
-print(entitys)
+# List all entitys (returns a list, raises on error)
+entitys = client.Entity().list({})
+for entity in entitys:
+    print(entity)
 ```
 
 ### PHP
@@ -97,8 +100,8 @@ require_once 'fantasyroleplaying_sdk.php';
 
 $client = new FantasyRolePlayingSDK();
 
-// List all entitys (throws on error)
-$entitys = $client->entity()->list();
+// List all entitys (returns an array; throws on error)
+$entitys = $client->Entity()->list();
 print_r($entitys);
 ```
 
@@ -121,8 +124,8 @@ require_relative "FantasyRolePlaying_sdk"
 
 client = FantasyRolePlayingSDK.new
 
-# List all entitys
-entitys = client.entity.list
+# List all entitys (returns an Array; raises on error)
+entitys = client.Entity.list
 puts entitys
 ```
 
@@ -134,7 +137,7 @@ local sdk = require("fantasy-role-playing_sdk")
 local client = sdk.new()
 
 -- List all entitys
-local entitys, err = client:entity():list()
+local entitys, err = client:Entity():list()
 print(entitys)
 ```
 
@@ -147,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = FantasyRolePlayingSDK.test()
-const result = await client.entity.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const entity = await client.Entity().load({ id: 'test01' })
+// entity is a bare Entity populated with mock data
+console.log(entity)
 ```
 
 ### Python
 
 ```python
 client = FantasyRolePlayingSDK.test()
-result = client.entity.load({"id": "test01"})
+entity = client.Entity().load({"id": "test01"})
+print(entity)
 ```
 
 ### PHP
 
 ```php
-$client = FantasyRolePlayingSDK::test();
-$result = $client->entity()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = FantasyRolePlayingSDK::test([
+    "entity" => ["entity" => ["test01" => ["id" => "test01"]]],
+]);
+$entity = $client->Entity()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -177,15 +185,18 @@ result, err := client.Entity(nil).Load(
 ### Ruby
 
 ```ruby
-client = FantasyRolePlayingSDK.test
-result = client.entity.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = FantasyRolePlayingSDK.test({
+  "entity" => { "entity" => { "test01" => { "id" => "test01" } } },
+})
+entity = client.Entity.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:entity():load({ id = "test01" })
+local result, err = client:Entity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -233,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

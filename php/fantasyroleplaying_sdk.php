@@ -233,10 +233,10 @@ class FantasyRolePlayingSDK
 
     private $_entity = null;
 
-    // Idiomatic facade: $client->entity()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Entity() (PHP method
-    // names are case-insensitive).
-    public function entity($data = null)
+    // Canonical facade: $client->Entity()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->entity()
+    // resolves here too.
+    public function Entity($data = null)
     {
         require_once __DIR__ . '/entity/entity_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class FantasyRolePlayingSDK
 
     private $_roll = null;
 
-    // Idiomatic facade: $client->roll()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Roll() (PHP method
-    // names are case-insensitive).
-    public function roll($data = null)
+    // Canonical facade: $client->Roll()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->roll()
+    // resolves here too.
+    public function Roll($data = null)
     {
         require_once __DIR__ . '/entity/roll_entity.php';
         if ($data === null) {

@@ -31,14 +31,16 @@ from fantasyroleplaying_sdk import FantasyRolePlayingSDK
 client = FantasyRolePlayingSDK()
 ```
 
-### 2. List entitys
+### 2. List entity records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.entity.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    entitys = client.Entity().list({})
+    for entity in entitys:
+        print(entity)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FantasyRolePlayingSDK.test()
 
-result = client.entity.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+entity = client.Entity().load({"id": "test01"})
+# entity contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,7 +166,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Entity` | `(data) -> EntityEntity` | Create a Entity entity instance. |
+| `Entity` | `(data) -> EntityEntity` | Create an Entity entity instance. |
 | `Roll` | `(data) -> RollEntity` | Create a Roll entity instance. |
 
 ### Entity interface
@@ -246,7 +249,7 @@ API path: `/roll/character`
 
 ### Entity
 
-Create an instance: `const entity = client.entity`
+Create an instance: `entity = client.Entity()`
 
 #### Operations
 
@@ -264,14 +267,14 @@ Create an instance: `const entity = client.entity`
 
 #### Example: List
 
-```ts
-const entitys = await client.entity.list()
+```python
+entitys = client.Entity().list({})
 ```
 
 
 ### Roll
 
-Create an instance: `const roll = client.roll`
+Create an instance: `roll = client.Roll()`
 
 #### Operations
 
@@ -301,14 +304,14 @@ Create an instance: `const roll = client.roll`
 
 #### Example: Load
 
-```ts
-const roll = await client.roll.load({ id: 'roll_id' })
+```python
+roll = client.Roll().load({"id": "roll_id"})
 ```
 
 #### Example: List
 
-```ts
-const rolls = await client.roll.list()
+```python
+rolls = client.Roll().list({})
 ```
 
 
@@ -382,7 +385,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-entity = client.entity
+entity = client.Entity()
 entity.load({"id": "example_id"})
 
 # entity.data_get() now returns the loaded entity data

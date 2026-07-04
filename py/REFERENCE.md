@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## EntityEntity
 
 ```python
-entity = client.entity
+entity = client.Entity()
 ```
 
 ### Fields
@@ -102,7 +102,9 @@ entity = client.entity
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.entity.list({})
+results = client.Entity().list({})
+for entity in results:
+    print(entity)
 ```
 
 ### Common Methods
@@ -137,7 +139,7 @@ Return the entity name.
 ## RollEntity
 
 ```python
-roll = client.roll
+roll = client.Roll()
 ```
 
 ### Fields
@@ -166,7 +168,9 @@ roll = client.roll
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.roll.list({})
+results = client.Roll().list({})
+for roll in results:
+    print(roll)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -174,7 +178,7 @@ results = client.roll.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.roll.load({"id": "roll_id"})
+result = client.Roll().load({"id": "roll_id"})
 ```
 
 ### Common Methods

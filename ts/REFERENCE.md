@@ -121,7 +121,7 @@ Alias for `FantasyRolePlayingSDK.test()`.
 ## EntityEntity
 
 ```ts
-const entity = client.entity
+const entity = client.Entity()
 ```
 
 ### Fields
@@ -139,7 +139,7 @@ const entity = client.entity
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.entity.list()
+const results = await client.Entity().list()
 ```
 
 ### Common Methods
@@ -173,7 +173,7 @@ Return a copy of the entity options.
 ## RollEntity
 
 ```ts
-const roll = client.roll
+const roll = client.Roll()
 ```
 
 ### Fields
@@ -202,7 +202,7 @@ const roll = client.roll
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.roll.list()
+const results = await client.Roll().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -210,7 +210,7 @@ const results = await client.roll.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.roll.load({ id: 'roll_id' })
+const result = await client.Roll().load({ id: 'roll_id' })
 ```
 
 ### Common Methods

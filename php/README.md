@@ -29,18 +29,16 @@ require_once 'fantasyroleplaying_sdk.php';
 $client = new FantasyRolePlayingSDK();
 ```
 
-### 2. List entitys
+### 2. List entity records
 
 ```php
 try {
-    $result = $client->entity()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Entity records — iterate directly.
+    $entitys = $client->Entity()->list();
+    foreach ($entitys as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = FantasyRolePlayingSDK::test();
+$client = FantasyRolePlayingSDK::test([
+    "entity" => ["entity" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->entity()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$entity = $client->Entity()->load(["id" => "test01"]);
+print_r($entity);
 ```
 
 ### Use a custom fetch function
@@ -171,7 +173,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Entity` | `($data): EntityEntity` | Create a Entity entity instance. |
+| `Entity` | `($data): EntityEntity` | Create an Entity entity instance. |
 | `Roll` | `($data): RollEntity` | Create a Roll entity instance. |
 
 ### Entity interface
@@ -254,7 +256,7 @@ API path: `/roll/character`
 
 ### Entity
 
-Create an instance: `const entity = client.entity`
+Create an instance: `$entity = $client->Entity();`
 
 #### Operations
 
@@ -272,14 +274,15 @@ Create an instance: `const entity = client.entity`
 
 #### Example: List
 
-```ts
-const entitys = await client.entity.list()
+```php
+// list() returns an array of Entity records (throws on error).
+$entitys = $client->Entity()->list();
 ```
 
 
 ### Roll
 
-Create an instance: `const roll = client.roll`
+Create an instance: `$roll = $client->Roll();`
 
 #### Operations
 
@@ -309,14 +312,16 @@ Create an instance: `const roll = client.roll`
 
 #### Example: Load
 
-```ts
-const roll = await client.roll.load({ id: 'roll_id' })
+```php
+// load() returns the bare Roll record (throws on error).
+$roll = $client->Roll()->load(["id" => "roll_id"]);
 ```
 
 #### Example: List
 
-```ts
-const rolls = await client.roll.list()
+```php
+// list() returns an array of Roll records (throws on error).
+$rolls = $client->Roll()->list();
 ```
 
 
@@ -391,7 +396,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$entity = $client->entity();
+$entity = $client->Entity();
 $entity->load(["id" => "example_id"]);
 
 // $entity->dataGet() now returns the loaded entity data

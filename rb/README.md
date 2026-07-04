@@ -28,16 +28,14 @@ require_relative "FantasyRolePlaying_sdk"
 client = FantasyRolePlayingSDK.new
 ```
 
-### 2. List entitys
+### 2. List entity records
 
 ```ruby
 begin
-  result = client.entity.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Entity records — iterate directly.
+  entitys = client.Entity.list
+  entitys.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = FantasyRolePlayingSDK.test
+client = FantasyRolePlayingSDK.test({
+  "entity" => { "entity" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.entity.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+entity = client.Entity.load({ "id" => "test01" })
+puts entity
 ```
 
 ### Use a custom fetch function
@@ -167,7 +169,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Entity` | `(data) -> EntityEntity` | Create a Entity entity instance. |
+| `Entity` | `(data) -> EntityEntity` | Create an Entity entity instance. |
 | `Roll` | `(data) -> RollEntity` | Create a Roll entity instance. |
 
 ### Entity interface
@@ -249,7 +251,7 @@ API path: `/roll/character`
 
 ### Entity
 
-Create an instance: `const entity = client.entity`
+Create an instance: `entity = client.Entity`
 
 #### Operations
 
@@ -267,14 +269,15 @@ Create an instance: `const entity = client.entity`
 
 #### Example: List
 
-```ts
-const entitys = await client.entity.list()
+```ruby
+# list returns an Array of Entity records (raises on error).
+entitys = client.Entity.list
 ```
 
 
 ### Roll
 
-Create an instance: `const roll = client.roll`
+Create an instance: `roll = client.Roll`
 
 #### Operations
 
@@ -304,14 +307,16 @@ Create an instance: `const roll = client.roll`
 
 #### Example: Load
 
-```ts
-const roll = await client.roll.load({ id: 'roll_id' })
+```ruby
+# load returns the bare Roll record (raises on error).
+roll = client.Roll.load({ "id" => "roll_id" })
 ```
 
 #### Example: List
 
-```ts
-const rolls = await client.roll.list()
+```ruby
+# list returns an Array of Roll records (raises on error).
+rolls = client.Roll.list
 ```
 
 
@@ -386,7 +391,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-entity = client.entity
+entity = client.Entity
 entity.load({ "id" => "example_id" })
 
 # entity.data_get now returns the loaded entity data

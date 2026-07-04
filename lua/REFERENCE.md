@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## EntityEntity
 
 ```lua
-local entity = client:entity(nil)
+local entity = client:Entity(nil)
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ local entity = client:entity(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:entity():list()
+local results, err = client:Entity():list()
 ```
 
 ### Common Methods
@@ -141,7 +141,7 @@ Return the entity name.
 ## RollEntity
 
 ```lua
-local roll = client:roll(nil)
+local roll = client:Roll(nil)
 ```
 
 ### Fields
@@ -170,7 +170,7 @@ local roll = client:roll(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:roll():list()
+local results, err = client:Roll():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -178,7 +178,7 @@ local results, err = client:roll():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:roll():load({ id = "roll_id" })
+local result, err = client:Roll():load({ id = "roll_id" })
 ```
 
 ### Common Methods

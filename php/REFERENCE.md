@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## EntityEntity
 
 ```php
-$entity = $client->entity();
+$entity = $client->Entity();
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ $entity = $client->entity();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->entity()->list([]);
+$results = $client->Entity()->list([]);
 ```
 
 ### Common Methods
@@ -143,7 +143,7 @@ Return the entity name.
 ## RollEntity
 
 ```php
-$roll = $client->roll();
+$roll = $client->Roll();
 ```
 
 ### Fields
@@ -172,7 +172,7 @@ $roll = $client->roll();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->roll()->list([]);
+$results = $client->Roll()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -180,7 +180,7 @@ $results = $client->roll()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->roll()->load(["id" => "roll_id"]);
+$result = $client->Roll()->load(["id" => "roll_id"]);
 ```
 
 ### Common Methods
