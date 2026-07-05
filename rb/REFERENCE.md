@@ -8,7 +8,7 @@ Complete API reference for the FantasyRolePlaying Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'fantasy-role-playing_sdk'
+require_relative 'FantasyRolePlaying_sdk'
 
 client = FantasyRolePlayingSDK.new(options)
 ```
@@ -97,18 +97,18 @@ entity = client.Entity
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `description` | `String` | No |  |
+| `id` | `String` | No |  |
+| `name` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Entity.list(nil)
+results = client.Entity.list
 ```
 
 ### Common Methods
@@ -151,29 +151,29 @@ roll = client.Roll
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | ``$ARRAY`` | No |  |
-| `attribute` | ``$OBJECT`` | No |  |
-| `class` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `disadvantage` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `skill` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `advantage` | `Array` | No |  |
+| `attribute` | `Hash` | No |  |
+| `class` | `String` | No |  |
+| `description` | `String` | No |  |
+| `disadvantage` | `Array` | No |  |
+| `id` | `String` | No |  |
+| `item` | `Array` | No |  |
+| `level` | `Integer` | No |  |
+| `name` | `String` | No |  |
+| `property` | `Hash` | No |  |
+| `race` | `String` | No |  |
+| `rarity` | `String` | No |  |
+| `skill` | `Array` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Roll.list(nil)
+results = client.Roll.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

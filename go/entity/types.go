@@ -15,8 +15,7 @@ type Entity struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// EntityListMatch mirrors the entity fields as an all-optional match
-// filter (Go analog of Partial<Entity>).
+// EntityListMatch is the typed request payload for Entity.ListTyped.
 type EntityListMatch struct {
 	Description *string `json:"description,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -41,15 +40,14 @@ type Roll struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// RollLoadMatch mirrors the roll fields as an all-optional match
-// filter (Go analog of Partial<Roll>).
+// RollLoadMatch is the typed request payload for Roll.LoadTyped.
 type RollLoadMatch struct {
 	Advantage *[]any `json:"advantage,omitempty"`
 	Attribute *map[string]any `json:"attribute,omitempty"`
 	Class *string `json:"class,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Disadvantage *[]any `json:"disadvantage,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Item *[]any `json:"item,omitempty"`
 	Level *int `json:"level,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -60,8 +58,7 @@ type RollLoadMatch struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// RollListMatch mirrors the roll fields as an all-optional match
-// filter (Go analog of Partial<Roll>).
+// RollListMatch is the typed request payload for Roll.ListTyped.
 type RollListMatch struct {
 	Advantage *[]any `json:"advantage,omitempty"`
 	Attribute *map[string]any `json:"attribute,omitempty"`

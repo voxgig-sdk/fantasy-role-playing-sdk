@@ -20,7 +20,7 @@ class Entity
     public ?string $name = null;
 }
 
-/** Match filter for Entity#list (any subset of Entity fields). */
+/** Request payload for Entity#list. */
 class EntityListMatch
 {
     public ?string $description = null;
@@ -47,7 +47,7 @@ class Roll
     public ?string $type = null;
 }
 
-/** Match filter for Roll#load (any subset of Roll fields). */
+/** Request payload for Roll#load. */
 class RollLoadMatch
 {
     public ?array $advantage = null;
@@ -55,7 +55,7 @@ class RollLoadMatch
     public ?string $class = null;
     public ?string $description = null;
     public ?array $disadvantage = null;
-    public ?string $id = null;
+    public string $id;
     public ?array $item = null;
     public ?int $level = null;
     public ?string $name = null;
@@ -66,7 +66,7 @@ class RollLoadMatch
     public ?string $type = null;
 }
 
-/** Match filter for Roll#list (any subset of Roll fields). */
+/** Request payload for Roll#list. */
 class RollListMatch
 {
     public ?array $advantage = null;

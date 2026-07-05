@@ -17,8 +17,6 @@ go build -o fantasy-role-playing-cli ./...
 ```sh
 # One-shot: arguments form a single AQL expression
 ./fantasy-role-playing-cli list entity
-./fantasy-role-playing-cli load 1 entity
-./fantasy-role-playing-cli load '{id:1}' entity
 
 # REPL
 ./fantasy-role-playing-cli
@@ -30,7 +28,6 @@ go build -o fantasy-role-playing-cli ./...
 |----------|----------------------------------------------|----------------------------|
 | `list`   | `[entity]` · `[query entity]`                | List records               |
 | `load`   | `[entity]` · `[query entity]`                | Load a single record       |
-| `update` | `[entity]` · `[query entity]`                | Update a record            |
 
 `query` is either a Map (`{id:1}`) or a Scalar (`1`, treated as `{id:1}`).
 `entity` is one of the SDK's entity names (auto-quoted as an atom).

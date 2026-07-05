@@ -25,7 +25,7 @@ Entity = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Entity#list (any subset of Entity fields).
+# Request payload for Entity#list.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -103,7 +103,7 @@ Roll = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Roll#load (any subset of Roll fields).
+# Request payload for Roll#load.
 #
 # @!attribute [rw] advantage
 #   @return [Array, nil]
@@ -121,7 +121,7 @@ Roll = Struct.new(
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] item
 #   @return [Array, nil]
@@ -164,7 +164,7 @@ RollLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Roll#list (any subset of Roll fields).
+# Request payload for Roll#list.
 #
 # @!attribute [rw] advantage
 #   @return [Array, nil]

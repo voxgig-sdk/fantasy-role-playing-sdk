@@ -44,12 +44,15 @@ class Roll(TypedDict, total=False):
     type: str
 
 
-class RollLoadMatch(TypedDict, total=False):
+class RollLoadMatchRequired(TypedDict):
+    id: str
+
+
+class RollLoadMatch(RollLoadMatchRequired, total=False):
     advantage: list
     attribute: dict
     description: str
     disadvantage: list
-    id: str
     item: list
     level: int
     name: str

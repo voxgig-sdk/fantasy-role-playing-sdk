@@ -94,9 +94,9 @@ local entity = client:Entity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -148,20 +148,20 @@ local roll = client:Roll(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | ``$ARRAY`` | No |  |
-| `attribute` | ``$OBJECT`` | No |  |
-| `class` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `disadvantage` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `skill` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `advantage` | `table` | No |  |
+| `attribute` | `table` | No |  |
+| `class` | `string` | No |  |
+| `description` | `string` | No |  |
+| `disadvantage` | `table` | No |  |
+| `id` | `string` | No |  |
+| `item` | `table` | No |  |
+| `level` | `number` | No |  |
+| `name` | `string` | No |  |
+| `property` | `table` | No |  |
+| `race` | `string` | No |  |
+| `rarity` | `string` | No |  |
+| `skill` | `table` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

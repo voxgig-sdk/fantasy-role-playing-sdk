@@ -11,7 +11,11 @@ export interface Entity {
   name?: string
 }
 
-export type EntityListMatch = Partial<Entity>
+export interface EntityListMatch {
+  description?: string
+  id?: string
+  name?: string
+}
 
 export interface Roll {
   advantage?: any[]
@@ -30,7 +34,37 @@ export interface Roll {
   type?: string
 }
 
-export type RollLoadMatch = Partial<Roll>
+export interface RollLoadMatch {
+  advantage?: any[]
+  attribute?: Record<string, any>
+  class?: string
+  description?: string
+  disadvantage?: any[]
+  id: string
+  item?: any[]
+  level?: number
+  name?: string
+  property?: Record<string, any>
+  race?: string
+  rarity?: string
+  skill?: any[]
+  type?: string
+}
 
-export type RollListMatch = Partial<Roll>
+export interface RollListMatch {
+  advantage?: any[]
+  attribute?: Record<string, any>
+  class?: string
+  description?: string
+  disadvantage?: any[]
+  id?: string
+  item?: any[]
+  level?: number
+  name?: string
+  property?: Record<string, any>
+  race?: string
+  rarity?: string
+  skill?: any[]
+  type?: string
+}
 

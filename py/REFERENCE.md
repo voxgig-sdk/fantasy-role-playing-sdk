@@ -8,7 +8,7 @@ Complete API reference for the FantasyRolePlaying Python SDK.
 ### Constructor
 
 ```python
-from fantasy-role-playing_sdk import FantasyRolePlayingSDK
+from fantasyroleplaying_sdk import FantasyRolePlayingSDK
 
 client = FantasyRolePlayingSDK(options)
 ```
@@ -91,18 +91,18 @@ entity = client.Entity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `description` | `str` | No |  |
+| `id` | `str` | No |  |
+| `name` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Entity().list({})
+results = client.Entity().list()
 for entity in results:
     print(entity)
 ```
@@ -146,29 +146,29 @@ roll = client.Roll()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | ``$ARRAY`` | No |  |
-| `attribute` | ``$OBJECT`` | No |  |
-| `class` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `disadvantage` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `skill` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `advantage` | `list` | No |  |
+| `attribute` | `dict` | No |  |
+| `class` | `str` | No |  |
+| `description` | `str` | No |  |
+| `disadvantage` | `list` | No |  |
+| `id` | `str` | No |  |
+| `item` | `list` | No |  |
+| `level` | `int` | No |  |
+| `name` | `str` | No |  |
+| `property` | `dict` | No |  |
+| `race` | `str` | No |  |
+| `rarity` | `str` | No |  |
+| `skill` | `list` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Roll().list({})
+results = client.Roll().list()
 for roll in results:
     print(roll)
 ```

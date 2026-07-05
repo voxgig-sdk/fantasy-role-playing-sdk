@@ -221,13 +221,13 @@ class FantasyRolePlayingSDK:
 
 
     def Entity(self, data=None) -> "EntityEntity":
-        """Entity factory: client.Entity().list({}) / client.Entity().load({"id": ...})."""
+        """Entity factory: client.Entity().list() / client.Entity().load({"id": ...})."""
         from entity.entity_entity import EntityEntity
         return EntityEntity(self, data)
 
 
     def Roll(self, data=None) -> "RollEntity":
-        """Entity factory: client.Roll().list({}) / client.Roll().load({"id": ...})."""
+        """Entity factory: client.Roll().list() / client.Roll().load({"id": ...})."""
         from entity.roll_entity import RollEntity
         return RollEntity(self, data)
 

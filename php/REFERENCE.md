@@ -8,7 +8,7 @@ Complete API reference for the FantasyRolePlaying PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/fantasy-role-playing_sdk.php';
+require_once __DIR__ . '/fantasyroleplaying_sdk.php';
 
 $client = new FantasyRolePlayingSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `EntityEntity` instance. Pass `null` for no initial data.
 
 Create a new `RollEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): FantasyRolePlayingUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,35 +96,35 @@ $entity = $client->Entity();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Entity()->list([]);
+$results = $client->Entity()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -133,7 +133,7 @@ Set the entity match criteria.
 Create a new `EntityEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -150,29 +150,29 @@ $roll = $client->Roll();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | ``$ARRAY`` | No |  |
-| `attribute` | ``$OBJECT`` | No |  |
-| `class` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `disadvantage` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `level` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `property` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `skill` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `advantage` | `array` | No |  |
+| `attribute` | `array` | No |  |
+| `class` | `string` | No |  |
+| `description` | `string` | No |  |
+| `disadvantage` | `array` | No |  |
+| `id` | `string` | No |  |
+| `item` | `array` | No |  |
+| `level` | `int` | No |  |
+| `name` | `string` | No |  |
+| `property` | `array` | No |  |
+| `race` | `string` | No |  |
+| `rarity` | `string` | No |  |
+| `skill` | `array` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Roll()->list([]);
+$results = $client->Roll()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -185,19 +185,19 @@ $result = $client->Roll()->load(["id" => "roll_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -206,7 +206,7 @@ Set the entity match criteria.
 Create a new `RollEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
