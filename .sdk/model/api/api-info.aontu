@@ -15,9 +15,9 @@ main: {
           url: "https://set.world/api"
         }
       ]
+      summary: "Set API allows users to query and generate entities within a fantasy role-playing world."
       title: "Fantasy Role Playing API"
       version: "1.0.0"
+      website: "https://set.world"
     }
   }
-}
-

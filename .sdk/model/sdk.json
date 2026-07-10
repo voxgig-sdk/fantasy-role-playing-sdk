@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -445,14 +442,17 @@
           "url": "https://set.world"
         },
         "description": "Set API allows users to query and generate entities within a fantasy role-playing world. It supports various actions such as rolling items and characters via HTTP GET requests, making it easily accessible and compatible with JSON, CURL, and CORS.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://set.world/api"
           }
         ],
+        "summary": "Set API allows users to query and generate entities within a fantasy role-playing world.",
         "title": "Fantasy Role Playing API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://set.world"
       },
       "option": {},
       "target": {
@@ -505,6 +505,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -555,6 +558,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
