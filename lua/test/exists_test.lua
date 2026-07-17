@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- FantasyRolePlaying SDK exists test
 
 local sdk = require("fantasy-role-playing_sdk")
 
