@@ -43,8 +43,8 @@ class FantasyRolePlayingTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('FANTASYROLEPLAYING_TEST_LIVE');
-        $override = self::getenv('FANTASYROLEPLAYING_TEST_OVERRIDE');
+        $live = self::getenv('FANTASY_ROLE_PLAYING_TEST_LIVE');
+        $override = self::getenv('FANTASY_ROLE_PLAYING_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class FantasyRolePlayingTestRunner
             }
         }
 
-        $explain = self::getenv('FANTASYROLEPLAYING_TEST_EXPLAIN');
+        $explain = self::getenv('FANTASY_ROLE_PLAYING_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['FANTASYROLEPLAYING_TEST_EXPLAIN'] = $explain;
+            $m['FANTASY_ROLE_PLAYING_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

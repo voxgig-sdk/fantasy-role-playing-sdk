@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ FantasyRolePlayingUtility::setRegistrar(function (FantasyRolePlayingUtility $u):
     $u->prepare_params = [FantasyRolePlayingPrepareParams::class, 'call'];
     $u->prepare_path = [FantasyRolePlayingPreparePath::class, 'call'];
     $u->prepare_query = [FantasyRolePlayingPrepareQuery::class, 'call'];
+    $u->graphql_body = [FantasyRolePlayingGraphql::class, 'body'];
+    $u->graphql_errors = [FantasyRolePlayingGraphql::class, 'errors'];
     $u->result_basic = [FantasyRolePlayingResultBasic::class, 'call'];
     $u->result_body = [FantasyRolePlayingResultBody::class, 'call'];
     $u->result_headers = [FantasyRolePlayingResultHeaders::class, 'call'];

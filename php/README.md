@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = FantasyRolePlayingSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $entity = $client->Entity()->list();
 print_r($entity);
 ```
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -260,20 +261,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantage` |  |
-| `attribute` |  |
+| `advantages` |  |
+| `attributes` |  |
 | `class` |  |
 | `description` |  |
-| `disadvantage` |  |
+| `disadvantages` |  |
 | `id` |  |
-| `item` |  |
+| `items` |  |
 | `level` |  |
 | `name` |  |
-| `property` |  |
 | `race` |  |
-| `rarity` |  |
-| `skill` |  |
-| `type` |  |
+| `skills` |  |
 
 Operations: List, Load.
 
@@ -325,25 +323,22 @@ Create an instance: `$roll = $client->Roll();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantage` | `array` |  |
-| `attribute` | `array` |  |
+| `advantages` | `array` |  |
+| `attributes` | `array` |  |
 | `class` | `string` |  |
 | `description` | `string` |  |
-| `disadvantage` | `array` |  |
+| `disadvantages` | `array` |  |
 | `id` | `string` |  |
-| `item` | `array` |  |
+| `items` | `array` |  |
 | `level` | `int` |  |
 | `name` | `string` |  |
-| `property` | `array` |  |
 | `race` | `string` |  |
-| `rarity` | `string` |  |
-| `skill` | `array` |  |
-| `type` | `string` |  |
+| `skills` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Roll record (throws on error).
+// load() returns the ENTITY — call data_get() for the Roll record (throws on error).
 $roll = $client->Roll()->load(["id" => "roll_id"]);
 ```
 

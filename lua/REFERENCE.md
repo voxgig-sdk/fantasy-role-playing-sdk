@@ -148,20 +148,17 @@ local roll = client:Roll(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | `table` | No |  |
-| `attribute` | `table` | No |  |
+| `advantages` | `table` | No |  |
+| `attributes` | `table` | No |  |
 | `class` | `string` | No |  |
 | `description` | `string` | No |  |
-| `disadvantage` | `table` | No |  |
+| `disadvantages` | `table` | No |  |
 | `id` | `string` | No |  |
-| `item` | `table` | No |  |
+| `items` | `table` | No |  |
 | `level` | `number` | No |  |
 | `name` | `string` | No |  |
-| `property` | `table` | No |  |
 | `race` | `string` | No |  |
-| `rarity` | `string` | No |  |
-| `skill` | `table` | No |  |
-| `type` | `string` | No |  |
+| `skills` | `table` | No |  |
 
 ### Operations
 

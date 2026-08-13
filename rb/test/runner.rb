@@ -23,8 +23,8 @@ module FantasyRolePlayingTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("FANTASYROLEPLAYING_TEST_LIVE")
-    override = getenv("FANTASYROLEPLAYING_TEST_OVERRIDE")
+    live = getenv("FANTASY_ROLE_PLAYING_TEST_LIVE")
+    override = getenv("FANTASY_ROLE_PLAYING_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module FantasyRolePlayingTestRunner
       end
     end
 
-    explain = getenv("FANTASYROLEPLAYING_TEST_EXPLAIN")
-    m["FANTASYROLEPLAYING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("FANTASY_ROLE_PLAYING_TEST_EXPLAIN")
+    m["FANTASY_ROLE_PLAYING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

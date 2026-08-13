@@ -26,8 +26,8 @@ import {
 describe('RollEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FANTASYROLEPLAYING_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FANTASYROLEPLAYING_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FANTASY_ROLE_PLAYING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FANTASY_ROLE_PLAYING_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = FantasyRolePlayingSDK.test()
@@ -63,13 +63,13 @@ describe('RollEntity', async () => {
     const roll_ref01_ent = client.Roll()
     const roll_ref01_match: any = {}
 
-    const roll_ref01_list = await roll_ref01_ent.list(roll_ref01_match)
+    const roll_ref01_list = (await roll_ref01_ent.list(roll_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const roll_ref01_match_dt0: any = {}
     roll_ref01_match_dt0.id = roll_ref01_data.id
-    const roll_ref01_data_dt0 = await roll_ref01_ent.load(roll_ref01_match_dt0)
+    const roll_ref01_data_dt0 = (await roll_ref01_ent.load(roll_ref01_match_dt0)).data()
     assert(roll_ref01_data_dt0.id === roll_ref01_data.id)
 
 

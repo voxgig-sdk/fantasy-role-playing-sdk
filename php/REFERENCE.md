@@ -150,20 +150,17 @@ $roll = $client->Roll();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | `array` | No |  |
-| `attribute` | `array` | No |  |
+| `advantages` | `array` | No |  |
+| `attributes` | `array` | No |  |
 | `class` | `string` | No |  |
 | `description` | `string` | No |  |
-| `disadvantage` | `array` | No |  |
+| `disadvantages` | `array` | No |  |
 | `id` | `string` | No |  |
-| `item` | `array` | No |  |
+| `items` | `array` | No |  |
 | `level` | `int` | No |  |
 | `name` | `string` | No |  |
-| `property` | `array` | No |  |
 | `race` | `string` | No |  |
-| `rarity` | `string` | No |  |
-| `skill` | `array` | No |  |
-| `type` | `string` | No |  |
+| `skills` | `array` | No |  |
 
 ### Operations
 

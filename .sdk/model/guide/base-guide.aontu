@@ -25,10 +25,12 @@ guide: {
     path: "/roll/item": {
       action: "item": {}
       op: load: method: *GET
+      op: load: transform: res: *("`body.properties`")|top
     }
     path: "/roll/set": {
       action: "set": {}
       op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
     }
   }
 

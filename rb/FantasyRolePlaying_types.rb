@@ -44,10 +44,10 @@ EntityListMatch = Struct.new(
 
 # Roll entity data model.
 #
-# @!attribute [rw] advantage
+# @!attribute [rw] advantages
 #   @return [Array, nil]
 #
-# @!attribute [rw] attribute
+# @!attribute [rw] attributes
 #   @return [Hash, nil]
 #
 # @!attribute [rw] class
@@ -56,13 +56,13 @@ EntityListMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
-# @!attribute [rw] disadvantage
+# @!attribute [rw] disadvantages
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] item
+# @!attribute [rw] items
 #   @return [Array, nil]
 #
 # @!attribute [rw] level
@@ -71,44 +71,32 @@ EntityListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] property
-#   @return [Hash, nil]
-#
 # @!attribute [rw] race
 #   @return [String, nil]
 #
-# @!attribute [rw] rarity
-#   @return [String, nil]
-#
-# @!attribute [rw] skill
+# @!attribute [rw] skills
 #   @return [Array, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 Roll = Struct.new(
-  :advantage,
-  :attribute,
+  :advantages,
+  :attributes,
   :class,
   :description,
-  :disadvantage,
+  :disadvantages,
   :id,
-  :item,
+  :items,
   :level,
   :name,
-  :property,
   :race,
-  :rarity,
-  :skill,
-  :type,
+  :skills,
   keyword_init: true
 )
 
 # Request payload for Roll#load.
 #
-# @!attribute [rw] advantage
+# @!attribute [rw] advantages
 #   @return [Array, nil]
 #
-# @!attribute [rw] attribute
+# @!attribute [rw] attributes
 #   @return [Hash, nil]
 #
 # @!attribute [rw] class
@@ -117,13 +105,13 @@ Roll = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
-# @!attribute [rw] disadvantage
+# @!attribute [rw] disadvantages
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] item
+# @!attribute [rw] items
 #   @return [Array, nil]
 #
 # @!attribute [rw] level
@@ -132,44 +120,32 @@ Roll = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] property
-#   @return [Hash, nil]
-#
 # @!attribute [rw] race
 #   @return [String, nil]
 #
-# @!attribute [rw] rarity
-#   @return [String, nil]
-#
-# @!attribute [rw] skill
+# @!attribute [rw] skills
 #   @return [Array, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 RollLoadMatch = Struct.new(
-  :advantage,
-  :attribute,
+  :advantages,
+  :attributes,
   :class,
   :description,
-  :disadvantage,
+  :disadvantages,
   :id,
-  :item,
+  :items,
   :level,
   :name,
-  :property,
   :race,
-  :rarity,
-  :skill,
-  :type,
+  :skills,
   keyword_init: true
 )
 
 # Request payload for Roll#list.
 #
-# @!attribute [rw] advantage
+# @!attribute [rw] advantages
 #   @return [Array, nil]
 #
-# @!attribute [rw] attribute
+# @!attribute [rw] attributes
 #   @return [Hash, nil]
 #
 # @!attribute [rw] class
@@ -178,13 +154,13 @@ RollLoadMatch = Struct.new(
 # @!attribute [rw] description
 #   @return [String, nil]
 #
-# @!attribute [rw] disadvantage
+# @!attribute [rw] disadvantages
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] item
+# @!attribute [rw] items
 #   @return [Array, nil]
 #
 # @!attribute [rw] level
@@ -193,35 +169,23 @@ RollLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] property
-#   @return [Hash, nil]
-#
 # @!attribute [rw] race
 #   @return [String, nil]
 #
-# @!attribute [rw] rarity
-#   @return [String, nil]
-#
-# @!attribute [rw] skill
+# @!attribute [rw] skills
 #   @return [Array, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 RollListMatch = Struct.new(
-  :advantage,
-  :attribute,
+  :advantages,
+  :attributes,
   :class,
   :description,
-  :disadvantage,
+  :disadvantages,
   :id,
-  :item,
+  :items,
   :level,
   :name,
-  :property,
   :race,
-  :rarity,
-  :skill,
-  :type,
+  :skills,
   keyword_init: true
 )
 

@@ -221,9 +221,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local entity, err = client:Entity():load()
+    local roll, err = client:Roll():load({ id = "example_id" })
     if err then error(err) end
-    -- entity is the loaded record
+    -- roll is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -246,20 +246,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantage` |  |
-| `attribute` |  |
+| `advantages` |  |
+| `attributes` |  |
 | `class` |  |
 | `description` |  |
-| `disadvantage` |  |
+| `disadvantages` |  |
 | `id` |  |
-| `item` |  |
+| `items` |  |
 | `level` |  |
 | `name` |  |
-| `property` |  |
 | `race` |  |
-| `rarity` |  |
-| `skill` |  |
-| `type` |  |
+| `skills` |  |
 
 Operations: List, Load.
 
@@ -310,20 +307,17 @@ Create an instance: `local roll = client:Roll(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantage` | `table` |  |
-| `attribute` | `table` |  |
+| `advantages` | `table` |  |
+| `attributes` | `table` |  |
 | `class` | `string` |  |
 | `description` | `string` |  |
-| `disadvantage` | `table` |  |
+| `disadvantages` | `table` |  |
 | `id` | `string` |  |
-| `item` | `table` |  |
+| `items` | `table` |  |
 | `level` | `number` |  |
 | `name` | `string` |  |
-| `property` | `table` |  |
 | `race` | `string` |  |
-| `rarity` | `string` |  |
-| `skill` | `table` |  |
-| `type` | `string` |  |
+| `skills` | `table` |  |
 
 #### Example: Load
 

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from fantasyroleplaying_sdk.utility.voxgig_struct import voxgig_struct as vs
 from fantasyroleplaying_sdk import FantasyRolePlayingSDK
-from core import helpers
+from fantasyroleplaying_sdk.core import helpers
 from test import runner
 
 
@@ -95,11 +95,11 @@ def _roll_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "FANTASYROLEPLAYING_TEST_ROLL_ENTID": {},
-        "FANTASYROLEPLAYING_TEST_LIVE": "FALSE",
+        "FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID": {},
+        "FANTASY_ROLE_PLAYING_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("FANTASYROLEPLAYING_TEST_LIVE") == "TRUE"
+    live = env.get("FANTASY_ROLE_PLAYING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

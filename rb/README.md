@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = FantasyRolePlayingSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 entity = client.Entity.list()
 puts entity
 ```
@@ -250,20 +251,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantage` |  |
-| `attribute` |  |
+| `advantages` |  |
+| `attributes` |  |
 | `class` |  |
 | `description` |  |
-| `disadvantage` |  |
+| `disadvantages` |  |
 | `id` |  |
-| `item` |  |
+| `items` |  |
 | `level` |  |
 | `name` |  |
-| `property` |  |
 | `race` |  |
-| `rarity` |  |
-| `skill` |  |
-| `type` |  |
+| `skills` |  |
 
 Operations: List, Load.
 
@@ -315,25 +313,22 @@ Create an instance: `roll = client.Roll`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantage` | `Array` |  |
-| `attribute` | `Hash` |  |
+| `advantages` | `Array` |  |
+| `attributes` | `Hash` |  |
 | `class` | `String` |  |
 | `description` | `String` |  |
-| `disadvantage` | `Array` |  |
+| `disadvantages` | `Array` |  |
 | `id` | `String` |  |
-| `item` | `Array` |  |
+| `items` | `Array` |  |
 | `level` | `Integer` |  |
 | `name` | `String` |  |
-| `property` | `Hash` |  |
 | `race` | `String` |  |
-| `rarity` | `String` |  |
-| `skill` | `Array` |  |
-| `type` | `String` |  |
+| `skills` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Roll record (raises on error).
+# load returns the ENTITY — call data_get for the Roll record (raises on error).
 roll = client.Roll.load({ "id" => "roll_id" })
 ```
 

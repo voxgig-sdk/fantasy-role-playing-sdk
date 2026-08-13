@@ -18,53 +18,56 @@ export interface EntityListMatch {
 }
 
 export interface Roll {
-  advantage?: any[]
-  attribute?: Record<string, any>
+  advantages?: any[]
+  attributes?: Record<string, any>
   class?: string
   description?: string
-  disadvantage?: any[]
+  disadvantages?: any[]
   id?: string
-  item?: any[]
+  items?: any[]
   level?: number
   name?: string
-  property?: Record<string, any>
   race?: string
-  rarity?: string
-  skill?: any[]
-  type?: string
+  skills?: any[]
 }
 
 export interface RollLoadMatch {
-  advantage?: any[]
-  attribute?: Record<string, any>
+  advantages?: any[]
+  attributes?: Record<string, any>
   class?: string
   description?: string
-  disadvantage?: any[]
+  disadvantages?: any[]
   id: string
-  item?: any[]
+  items?: any[]
   level?: number
   name?: string
-  property?: Record<string, any>
   race?: string
-  rarity?: string
-  skill?: any[]
-  type?: string
+  skills?: any[]
+
+  // Selects a custom action instead of the plain load:
+  //   'item'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface RollListMatch {
-  advantage?: any[]
-  attribute?: Record<string, any>
+  advantages?: any[]
+  attributes?: Record<string, any>
   class?: string
   description?: string
-  disadvantage?: any[]
+  disadvantages?: any[]
   id?: string
-  item?: any[]
+  items?: any[]
   level?: number
   name?: string
-  property?: Record<string, any>
   race?: string
-  rarity?: string
-  skill?: any[]
-  type?: string
+  skills?: any[]
+
+  // Selects a custom action instead of the plain list:
+  //   'character' | 'set'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 

@@ -31,57 +31,48 @@ class EntityListMatch
 /** Roll entity data model. */
 class Roll
 {
-    public ?array $advantage = null;
-    public ?array $attribute = null;
+    public ?array $advantages = null;
+    public ?array $attributes = null;
     public ?string $class = null;
     public ?string $description = null;
-    public ?array $disadvantage = null;
+    public ?array $disadvantages = null;
     public ?string $id = null;
-    public ?array $item = null;
+    public ?array $items = null;
     public ?int $level = null;
     public ?string $name = null;
-    public ?array $property = null;
     public ?string $race = null;
-    public ?string $rarity = null;
-    public ?array $skill = null;
-    public ?string $type = null;
+    public ?array $skills = null;
 }
 
 /** Request payload for Roll#load. */
 class RollLoadMatch
 {
-    public ?array $advantage = null;
-    public ?array $attribute = null;
+    public ?array $advantages = null;
+    public ?array $attributes = null;
     public ?string $class = null;
     public ?string $description = null;
-    public ?array $disadvantage = null;
+    public ?array $disadvantages = null;
     public string $id;
-    public ?array $item = null;
+    public ?array $items = null;
     public ?int $level = null;
     public ?string $name = null;
-    public ?array $property = null;
     public ?string $race = null;
-    public ?string $rarity = null;
-    public ?array $skill = null;
-    public ?string $type = null;
+    public ?array $skills = null;
 }
 
 /** Request payload for Roll#list. */
 class RollListMatch
 {
-    public ?array $advantage = null;
-    public ?array $attribute = null;
+    public ?array $advantages = null;
+    public ?array $attributes = null;
     public ?string $class = null;
     public ?string $description = null;
-    public ?array $disadvantage = null;
+    public ?array $disadvantages = null;
     public ?string $id = null;
-    public ?array $item = null;
+    public ?array $items = null;
     public ?int $level = null;
     public ?string $name = null;
-    public ?array $property = null;
     public ?string $race = null;
-    public ?string $rarity = null;
-    public ?array $skill = null;
-    public ?string $type = null;
+    public ?array $skills = null;
 }
 

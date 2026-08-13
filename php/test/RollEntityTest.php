@@ -72,7 +72,7 @@ class RollEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set FANTASYROLEPLAYING_TEST_ROLL_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -97,7 +97,7 @@ class RollEntityTest extends TestCase
             "id" => $roll_ref01_data["id"],
         ];
         $roll_ref01_data_dt0_loaded = $roll_ref01_ent->load($roll_ref01_match_dt0, null);
-        $roll_ref01_data_dt0_load_result = Helpers::to_map($roll_ref01_data_dt0_loaded);
+        $roll_ref01_data_dt0_load_result = Helpers::to_map(is_object($roll_ref01_data_dt0_loaded) && method_exists($roll_ref01_data_dt0_loaded, 'data_get') ? $roll_ref01_data_dt0_loaded->data_get() : $roll_ref01_data_dt0_loaded);
         $this->assertNotNull($roll_ref01_data_dt0_load_result);
         $this->assertEquals($roll_ref01_data_dt0_load_result["id"], $roll_ref01_data["id"]);
 
@@ -126,22 +126,22 @@ function roll_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("FANTASYROLEPLAYING_TEST_ROLL_ENTID");
+    $entid_env_raw = getenv("FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "FANTASYROLEPLAYING_TEST_ROLL_ENTID" => $idmap,
-        "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
-        "FANTASYROLEPLAYING_TEST_EXPLAIN" => "FALSE",
+        "FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID" => $idmap,
+        "FANTASY_ROLE_PLAYING_TEST_LIVE" => "FALSE",
+        "FANTASY_ROLE_PLAYING_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["FANTASYROLEPLAYING_TEST_ROLL_ENTID"]);
+        $env["FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["FANTASYROLEPLAYING_TEST_LIVE"] === "TRUE") {
+    if ($env["FANTASY_ROLE_PLAYING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -150,13 +150,13 @@ function roll_basic_setup($extra)
         $client = new FantasyRolePlayingSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["FANTASYROLEPLAYING_TEST_LIVE"] === "TRUE";
+    $live = $env["FANTASY_ROLE_PLAYING_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["FANTASYROLEPLAYING_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["FANTASY_ROLE_PLAYING_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

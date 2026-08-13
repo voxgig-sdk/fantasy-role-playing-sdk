@@ -105,11 +105,11 @@ function roll_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["FANTASYROLEPLAYING_TEST_ROLL_ENTID"] = {},
-    ["FANTASYROLEPLAYING_TEST_LIVE"] = "FALSE",
+    ["FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID"] = {},
+    ["FANTASY_ROLE_PLAYING_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
+  local live = env["FANTASY_ROLE_PLAYING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

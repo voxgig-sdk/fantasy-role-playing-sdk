@@ -62,6 +62,7 @@ class FantasyRolePlayingConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/advantages',
                   'parts' => [
@@ -77,6 +78,7 @@ class FantasyRolePlayingConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/disadvantages',
                   'parts' => [
@@ -92,6 +94,7 @@ class FantasyRolePlayingConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/skills',
                   'parts' => [
@@ -116,14 +119,14 @@ class FantasyRolePlayingConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'advantage',
+              'name' => 'advantages',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
             ],
             [
               'active' => true,
-              'name' => 'attribute',
+              'name' => 'attributes',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 1,
@@ -144,7 +147,7 @@ class FantasyRolePlayingConfig
             ],
             [
               'active' => true,
-              'name' => 'disadvantage',
+              'name' => 'disadvantages',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 4,
@@ -158,7 +161,7 @@ class FantasyRolePlayingConfig
             ],
             [
               'active' => true,
-              'name' => 'item',
+              'name' => 'items',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 6,
@@ -179,38 +182,17 @@ class FantasyRolePlayingConfig
             ],
             [
               'active' => true,
-              'name' => 'property',
+              'name' => 'race',
               'req' => false,
-              'type' => '`$OBJECT`',
+              'type' => '`$STRING`',
               'index$' => 9,
             ],
             [
               'active' => true,
-              'name' => 'race',
-              'req' => false,
-              'type' => '`$STRING`',
-              'index$' => 10,
-            ],
-            [
-              'active' => true,
-              'name' => 'rarity',
-              'req' => false,
-              'type' => '`$STRING`',
-              'index$' => 11,
-            ],
-            [
-              'active' => true,
-              'name' => 'skill',
+              'name' => 'skills',
               'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 12,
-            ],
-            [
-              'active' => true,
-              'name' => 'type',
-              'req' => false,
-              'type' => '`$STRING`',
-              'index$' => 13,
+              'index$' => 10,
             ],
           ],
           'name' => 'roll',
@@ -222,6 +204,7 @@ class FantasyRolePlayingConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/roll/character',
                   'parts' => [
@@ -240,6 +223,7 @@ class FantasyRolePlayingConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/roll/set',
                   'parts' => [
@@ -251,7 +235,7 @@ class FantasyRolePlayingConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.items`',
                   ],
                   'index$' => 1,
                 ],
@@ -265,6 +249,7 @@ class FantasyRolePlayingConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/roll/item',
                   'parts' => [
@@ -276,7 +261,7 @@ class FantasyRolePlayingConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.properties`',
                   ],
                   'index$' => 0,
                 ],

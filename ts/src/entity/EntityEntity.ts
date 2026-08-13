@@ -37,7 +37,7 @@ class EntityEntity extends FantasyRolePlayingEntityBase<Entity> {
 
 
 
-  async list(this: any, reqmatch?: EntityListMatch, ctrl?: Control): Promise<Entity[]> {
+  async list(this: any, reqmatch?: EntityListMatch, ctrl?: Control): Promise<EntityEntity[]> {
 
     const utility = this._utility
 

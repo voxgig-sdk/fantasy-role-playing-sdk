@@ -146,20 +146,17 @@ roll = client.Roll()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | `list` | No |  |
-| `attribute` | `dict` | No |  |
+| `advantages` | `list` | No |  |
+| `attributes` | `dict` | No |  |
 | `class` | `str` | No |  |
 | `description` | `str` | No |  |
-| `disadvantage` | `list` | No |  |
+| `disadvantages` | `list` | No |  |
 | `id` | `str` | No |  |
-| `item` | `list` | No |  |
+| `items` | `list` | No |  |
 | `level` | `int` | No |  |
 | `name` | `str` | No |  |
-| `property` | `dict` | No |  |
 | `race` | `str` | No |  |
-| `rarity` | `str` | No |  |
-| `skill` | `list` | No |  |
-| `type` | `str` | No |  |
+| `skills` | `list` | No |  |
 
 ### Operations
 

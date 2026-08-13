@@ -62,7 +62,7 @@ class EntityEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set FANTASYROLEPLAYING_TEST_ENTITY_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set FANTASY_ROLE_PLAYING_TEST_ENTITY_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -111,22 +111,22 @@ def entity_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["FANTASYROLEPLAYING_TEST_ENTITY_ENTID"]
+  entid_env_raw = ENV["FANTASY_ROLE_PLAYING_TEST_ENTITY_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "FANTASYROLEPLAYING_TEST_ENTITY_ENTID" => idmap,
-    "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
-    "FANTASYROLEPLAYING_TEST_EXPLAIN" => "FALSE",
+    "FANTASY_ROLE_PLAYING_TEST_ENTITY_ENTID" => idmap,
+    "FANTASY_ROLE_PLAYING_TEST_LIVE" => "FALSE",
+    "FANTASY_ROLE_PLAYING_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["FANTASYROLEPLAYING_TEST_ENTITY_ENTID"])
+    env["FANTASY_ROLE_PLAYING_TEST_ENTITY_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
+  if env["FANTASY_ROLE_PLAYING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -135,13 +135,13 @@ def entity_basic_setup(extra)
     client = FantasyRolePlayingSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
+  live = env["FANTASY_ROLE_PLAYING_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["FANTASYROLEPLAYING_TEST_EXPLAIN"] == "TRUE",
+    explain: env["FANTASY_ROLE_PLAYING_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

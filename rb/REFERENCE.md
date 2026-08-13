@@ -151,20 +151,17 @@ roll = client.Roll
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | `Array` | No |  |
-| `attribute` | `Hash` | No |  |
+| `advantages` | `Array` | No |  |
+| `attributes` | `Hash` | No |  |
 | `class` | `String` | No |  |
 | `description` | `String` | No |  |
-| `disadvantage` | `Array` | No |  |
+| `disadvantages` | `Array` | No |  |
 | `id` | `String` | No |  |
-| `item` | `Array` | No |  |
+| `items` | `Array` | No |  |
 | `level` | `Integer` | No |  |
 | `name` | `String` | No |  |
-| `property` | `Hash` | No |  |
 | `race` | `String` | No |  |
-| `rarity` | `String` | No |  |
-| `skill` | `Array` | No |  |
-| `type` | `String` | No |  |
+| `skills` | `Array` | No |  |
 
 ### Operations
 

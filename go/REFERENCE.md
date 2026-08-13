@@ -155,20 +155,17 @@ fmt.Println(roll.GetName()) // "roll"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | `[]any` | No |  |
-| `attribute` | `map[string]any` | No |  |
+| `advantages` | `[]any` | No |  |
+| `attributes` | `map[string]any` | No |  |
 | `class` | `string` | No |  |
 | `description` | `string` | No |  |
-| `disadvantage` | `[]any` | No |  |
+| `disadvantages` | `[]any` | No |  |
 | `id` | `string` | No |  |
-| `item` | `[]any` | No |  |
+| `items` | `[]any` | No |  |
 | `level` | `int` | No |  |
 | `name` | `string` | No |  |
-| `property` | `map[string]any` | No |  |
 | `race` | `string` | No |  |
-| `rarity` | `string` | No |  |
-| `skill` | `[]any` | No |  |
-| `type` | `string` | No |  |
+| `skills` | `[]any` | No |  |
 
 ### Operations
 

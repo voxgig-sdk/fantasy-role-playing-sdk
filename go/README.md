@@ -275,20 +275,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `"advantage"` |  |
-| `"attribute"` |  |
+| `"advantages"` |  |
+| `"attributes"` |  |
 | `"class"` |  |
 | `"description"` |  |
-| `"disadvantage"` |  |
+| `"disadvantages"` |  |
 | `"id"` |  |
-| `"item"` |  |
+| `"items"` |  |
 | `"level"` |  |
 | `"name"` |  |
-| `"property"` |  |
 | `"race"` |  |
-| `"rarity"` |  |
-| `"skill"` |  |
-| `"type"` |  |
+| `"skills"` |  |
 
 Operations: List, Load.
 
@@ -343,20 +340,17 @@ Create an instance: `roll := client.Roll(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantage` | `[]any` |  |
-| `attribute` | `map[string]any` |  |
+| `advantages` | `[]any` |  |
+| `attributes` | `map[string]any` |  |
 | `class` | `string` |  |
 | `description` | `string` |  |
-| `disadvantage` | `[]any` |  |
+| `disadvantages` | `[]any` |  |
 | `id` | `string` |  |
-| `item` | `[]any` |  |
+| `items` | `[]any` |  |
 | `level` | `int` |  |
 | `name` | `string` |  |
-| `property` | `map[string]any` |  |
 | `race` | `string` |  |
-| `rarity` | `string` |  |
-| `skill` | `[]any` |  |
-| `type` | `string` |  |
+| `skills` | `[]any` |  |
 
 #### Example: Load
 

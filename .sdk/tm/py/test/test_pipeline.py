@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import FantasyRolePlayingSDK
-from core.error import FantasyRolePlayingError
-from core.result import FantasyRolePlayingResult
-from core.response import FantasyRolePlayingResponse
-from core.spec import FantasyRolePlayingSpec
-from feature.base_feature import FantasyRolePlayingBaseFeature
+from projectname_sdk.core.error import FantasyRolePlayingError
+from projectname_sdk.core.result import FantasyRolePlayingResult
+from projectname_sdk.core.response import FantasyRolePlayingResponse
+from projectname_sdk.core.spec import FantasyRolePlayingSpec
+from projectname_sdk.feature.base_feature import FantasyRolePlayingBaseFeature
 
 
 def _client():

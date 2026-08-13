@@ -60,11 +60,11 @@ def entity_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "FANTASYROLEPLAYING_TEST_ENTITY_ENTID" => {},
-    "FANTASYROLEPLAYING_TEST_LIVE" => "FALSE",
+    "FANTASY_ROLE_PLAYING_TEST_ENTITY_ENTID" => {},
+    "FANTASY_ROLE_PLAYING_TEST_LIVE" => "FALSE",
   })
 
-  live = env["FANTASYROLEPLAYING_TEST_LIVE"] == "TRUE"
+  live = env["FANTASY_ROLE_PLAYING_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

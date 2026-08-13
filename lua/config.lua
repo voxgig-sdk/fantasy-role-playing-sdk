@@ -56,6 +56,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/advantages",
                 ["parts"] = {
@@ -71,6 +72,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/disadvantages",
                 ["parts"] = {
@@ -86,6 +88,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/skills",
                 ["parts"] = {
@@ -110,14 +113,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "advantage",
+            ["name"] = "advantages",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "attribute",
+            ["name"] = "attributes",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 1,
@@ -138,7 +141,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "disadvantage",
+            ["name"] = "disadvantages",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 4,
@@ -152,7 +155,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "item",
+            ["name"] = "items",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 6,
@@ -173,38 +176,17 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "property",
+            ["name"] = "race",
             ["req"] = false,
-            ["type"] = "`$OBJECT`",
+            ["type"] = "`$STRING`",
             ["index$"] = 9,
           },
           {
             ["active"] = true,
-            ["name"] = "race",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
-            ["index$"] = 10,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "rarity",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
-            ["index$"] = 11,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "skill",
+            ["name"] = "skills",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
-            ["index$"] = 12,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "type",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
-            ["index$"] = 13,
+            ["index$"] = 10,
           },
         },
         ["name"] = "roll",
@@ -216,6 +198,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/character",
                 ["parts"] = {
@@ -234,6 +217,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/set",
                 ["parts"] = {
@@ -245,7 +229,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.items`",
                 },
                 ["index$"] = 1,
               },
@@ -259,6 +243,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/item",
                 ["parts"] = {
@@ -270,7 +255,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.properties`",
                 },
                 ["index$"] = 0,
               },

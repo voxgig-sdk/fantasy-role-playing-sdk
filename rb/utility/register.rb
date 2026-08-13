@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FantasyRolePlayingUtility.registrar = ->(u) {
   u.prepare_params = FantasyRolePlayingUtilities::PrepareParams
   u.prepare_path = FantasyRolePlayingUtilities::PreparePath
   u.prepare_query = FantasyRolePlayingUtilities::PrepareQuery
+  u.graphql_body = FantasyRolePlayingUtilities::GraphqlBody
+  u.graphql_errors = FantasyRolePlayingUtilities::GraphqlErrors
   u.result_basic = FantasyRolePlayingUtilities::ResultBasic
   u.result_body = FantasyRolePlayingUtilities::ResultBody
   u.result_headers = FantasyRolePlayingUtilities::ResultHeaders

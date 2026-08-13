@@ -180,20 +180,39 @@ const roll = client.Roll()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantage` | `any[]` | No |  |
-| `attribute` | `Record<string, any>` | No |  |
+| `advantages` | `any[]` | No |  |
+| `attributes` | `Record<string, any>` | No |  |
 | `class` | `string` | No |  |
 | `description` | `string` | No |  |
-| `disadvantage` | `any[]` | No |  |
+| `disadvantages` | `any[]` | No |  |
 | `id` | `string` | No |  |
-| `item` | `any[]` | No |  |
+| `items` | `any[]` | No |  |
 | `level` | `number` | No |  |
 | `name` | `string` | No |  |
-| `property` | `Record<string, any>` | No |  |
 | `race` | `string` | No |  |
-| `rarity` | `string` | No |  |
-| `skill` | `any[]` | No |  |
-| `type` | `string` | No |  |
+| `skills` | `any[]` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `character` | `/roll/character` | `client.Roll().list({ $action: 'character', ... })` |
+| `set` | `/roll/set` | `client.Roll().list({ $action: 'set', ... })` |
+| `item` | `/roll/item` | `client.Roll().load({ $action: 'item', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Roll record — check the API definition for its shape.
+
+```ts
+const result = await client.Roll().list({
+  $action: 'character',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

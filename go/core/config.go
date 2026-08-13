@@ -56,6 +56,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/advantages",
 								"parts": []any{
@@ -71,6 +72,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/disadvantages",
 								"parts": []any{
@@ -86,6 +88,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/skills",
 								"parts": []any{
@@ -99,7 +102,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -110,14 +112,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "advantage",
+						"name": "advantages",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "attribute",
+						"name": "attributes",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 1,
@@ -138,7 +140,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "disadvantage",
+						"name": "disadvantages",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 4,
@@ -152,7 +154,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "item",
+						"name": "items",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 6,
@@ -173,38 +175,17 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "property",
+						"name": "race",
 						"req": false,
-						"type": "`$OBJECT`",
+						"type": "`$STRING`",
 						"index$": 9,
 					},
 					map[string]any{
 						"active": true,
-						"name": "race",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 10,
-					},
-					map[string]any{
-						"active": true,
-						"name": "rarity",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 11,
-					},
-					map[string]any{
-						"active": true,
-						"name": "skill",
+						"name": "skills",
 						"req": false,
 						"type": "`$ARRAY`",
-						"index$": 12,
-					},
-					map[string]any{
-						"active": true,
-						"name": "type",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 13,
+						"index$": 10,
 					},
 				},
 				"name": "roll",
@@ -216,6 +197,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/roll/character",
 								"parts": []any{
@@ -234,6 +216,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/roll/set",
 								"parts": []any{
@@ -245,12 +228,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.items`",
 								},
 								"index$": 1,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -259,6 +241,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/roll/item",
 								"parts": []any{
@@ -270,12 +253,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.properties`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

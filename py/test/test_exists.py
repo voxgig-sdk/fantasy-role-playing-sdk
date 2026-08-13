@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# FantasyRolePlaying SDK exists test
 
 import pytest
 from fantasyroleplaying_sdk import FantasyRolePlayingSDK

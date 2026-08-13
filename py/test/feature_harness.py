@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FantasyRolePlayingControl
-from core.error import FantasyRolePlayingError
-from core.result import FantasyRolePlayingResult
-from core.spec import FantasyRolePlayingSpec
+from fantasyroleplaying_sdk.config import make_config
+from fantasyroleplaying_sdk.features import _make_feature
+from fantasyroleplaying_sdk.core.control import FantasyRolePlayingControl
+from fantasyroleplaying_sdk.core.error import FantasyRolePlayingError
+from fantasyroleplaying_sdk.core.result import FantasyRolePlayingResult
+from fantasyroleplaying_sdk.core.spec import FantasyRolePlayingSpec
 
 
 # True when this SDK was generated with the named feature.

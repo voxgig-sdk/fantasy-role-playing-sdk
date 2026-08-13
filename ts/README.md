@@ -35,7 +35,9 @@ const client = new FantasyRolePlayingSDK()
 
 ### 2. List entity records
 
-`list()` resolves to an array of Entity objects — iterate it directly:
+`list()` resolves to an array of Entity ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const entitys = await client.Entity().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = FantasyRolePlayingSDK.test()
 
 const entity = await client.Entity().list()
-// entity is a bare entity populated with mock response data
+// entity is the entity, populated with mock response data
+// — call entity.data() for the record itself
 console.log(entity)
 ```
 
@@ -299,20 +302,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantage` |  |
-| `attribute` |  |
+| `advantages` |  |
+| `attributes` |  |
 | `class` |  |
 | `description` |  |
-| `disadvantage` |  |
+| `disadvantages` |  |
 | `id` |  |
-| `item` |  |
+| `items` |  |
 | `level` |  |
 | `name` |  |
-| `property` |  |
 | `race` |  |
-| `rarity` |  |
-| `skill` |  |
-| `type` |  |
+| `skills` |  |
 
 Operations: list, load.
 
@@ -363,20 +363,17 @@ Create an instance: `const roll = client.Roll()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantage` | `any[]` |  |
-| `attribute` | `Record<string, any>` |  |
+| `advantages` | `any[]` |  |
+| `attributes` | `Record<string, any>` |  |
 | `class` | `string` |  |
 | `description` | `string` |  |
-| `disadvantage` | `any[]` |  |
+| `disadvantages` | `any[]` |  |
 | `id` | `string` |  |
-| `item` | `any[]` |  |
+| `items` | `any[]` |  |
 | `level` | `number` |  |
 | `name` | `string` |  |
-| `property` | `Record<string, any>` |  |
 | `race` | `string` |  |
-| `rarity` | `string` |  |
-| `skill` | `any[]` |  |
-| `type` | `string` |  |
+| `skills` | `any[]` |  |
 
 #### Example: Load
 
