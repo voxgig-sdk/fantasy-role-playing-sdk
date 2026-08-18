@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from fantasyroleplaying_sdk.config import make_config
+from fantasyroleplaying_sdk.config import shared_config
 from fantasyroleplaying_sdk.features import _make_feature
 from fantasyroleplaying_sdk.core.control import FantasyRolePlayingControl
 from fantasyroleplaying_sdk.core.error import FantasyRolePlayingError
@@ -24,7 +24,7 @@ from fantasyroleplaying_sdk.core.spec import FantasyRolePlayingSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

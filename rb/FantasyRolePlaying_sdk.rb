@@ -28,7 +28,7 @@ class FantasyRolePlayingSDK
     utility = FantasyRolePlayingUtility.new
     @_utility = utility
 
-    config = FantasyRolePlayingConfig.make_config
+    config = FantasyRolePlayingConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

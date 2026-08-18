@@ -23,8 +23,8 @@ class FantasyRolePlayingSDK:
         utility = FantasyRolePlayingUtility()
         self._utility = utility
 
-        from fantasyroleplaying_sdk.config import make_config
-        config = make_config()
+        from fantasyroleplaying_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

@@ -15,7 +15,7 @@ require_relative "../FantasyRolePlaying_sdk"
 module FantasyRolePlayingFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = FantasyRolePlayingConfig.make_config["feature"]
+    f = FantasyRolePlayingConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

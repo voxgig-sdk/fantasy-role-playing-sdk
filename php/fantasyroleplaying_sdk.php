@@ -40,7 +40,7 @@ class FantasyRolePlayingSDK
         $utility = new FantasyRolePlayingUtility();
         $this->_utility = $utility;
 
-        $config = FantasyRolePlayingConfig::make_config();
+        $config = FantasyRolePlayingConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
