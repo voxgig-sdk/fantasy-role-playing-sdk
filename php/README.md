@@ -249,9 +249,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `name` |  |
+| `description` | Description of the advantage |
+| `id` | Unique identifier for the advantage |
+| `name` | Name of the advantage |
 
 Operations: List.
 
@@ -261,17 +261,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` |  |
-| `attributes` |  |
-| `class` |  |
-| `description` |  |
-| `disadvantages` |  |
-| `id` |  |
-| `items` |  |
-| `level` |  |
-| `name` |  |
-| `race` |  |
-| `skills` |  |
+| `advantages` | Character advantages |
+| `attributes` | Character attributes and stats |
+| `class` | Class of the character |
+| `description` | Description of the set |
+| `disadvantages` | Character disadvantages |
+| `id` | Unique identifier for the character |
+| `items` | Items included in the set |
+| `level` | Level of the character |
+| `name` | Name of the character |
+| `race` | Race of the character |
+| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -296,9 +296,9 @@ Create an instance: `$entity = $client->Entity();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
+| `description` | `string` | Description of the advantage |
+| `id` | `string` | Unique identifier for the advantage |
+| `name` | `string` | Name of the advantage |
 
 #### Example: List
 
@@ -323,17 +323,17 @@ Create an instance: `$roll = $client->Roll();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantages` | `array` |  |
-| `attributes` | `array` |  |
-| `class` | `string` |  |
-| `description` | `string` |  |
-| `disadvantages` | `array` |  |
-| `id` | `string` |  |
-| `items` | `array` |  |
-| `level` | `int` |  |
-| `name` | `string` |  |
-| `race` | `string` |  |
-| `skills` | `array` |  |
+| `advantages` | `array` | Character advantages |
+| `attributes` | `array` | Character attributes and stats |
+| `class` | `string` | Class of the character |
+| `description` | `string` | Description of the set |
+| `disadvantages` | `array` | Character disadvantages |
+| `id` | `string` | Unique identifier for the character |
+| `items` | `array` | Items included in the set |
+| `level` | `int` | Level of the character |
+| `name` | `string` | Name of the character |
+| `race` | `string` | Race of the character |
+| `skills` | `array` | Character skills |
 
 #### Example: Load
 

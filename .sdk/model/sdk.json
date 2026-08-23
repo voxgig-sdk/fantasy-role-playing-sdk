@@ -36,18 +36,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Description of the advantage",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the advantage",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the advantage",
               "type": "`$STRING`"
             }
           ],
@@ -123,66 +126,77 @@
               "active": true,
               "name": "advantages",
               "req": false,
+              "short": "Character advantages",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "attributes",
               "req": false,
+              "short": "Character attributes and stats",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "class",
               "req": false,
+              "short": "Class of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Description of the set",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "disadvantages",
               "req": false,
+              "short": "Character disadvantages",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "items",
               "req": false,
+              "short": "Items included in the set",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "level",
               "req": false,
+              "short": "Level of the character",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "race",
               "req": false,
+              "short": "Race of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "skills",
               "req": false,
+              "short": "Character skills",
               "type": "`$ARRAY`"
             }
           ],

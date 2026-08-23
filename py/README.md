@@ -245,9 +245,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `name` |  |
+| `description` | Description of the advantage |
+| `id` | Unique identifier for the advantage |
+| `name` | Name of the advantage |
 
 Operations: List.
 
@@ -257,17 +257,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` |  |
-| `attributes` |  |
-| `class` |  |
-| `description` |  |
-| `disadvantages` |  |
-| `id` |  |
-| `items` |  |
-| `level` |  |
-| `name` |  |
-| `race` |  |
-| `skills` |  |
+| `advantages` | Character advantages |
+| `attributes` | Character attributes and stats |
+| `class` | Class of the character |
+| `description` | Description of the set |
+| `disadvantages` | Character disadvantages |
+| `id` | Unique identifier for the character |
+| `items` | Items included in the set |
+| `level` | Level of the character |
+| `name` | Name of the character |
+| `race` | Race of the character |
+| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -292,9 +292,9 @@ Create an instance: `entity = client.Entity()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `id` | `str` |  |
-| `name` | `str` |  |
+| `description` | `str` | Description of the advantage |
+| `id` | `str` | Unique identifier for the advantage |
+| `name` | `str` | Name of the advantage |
 
 #### Example: List
 
@@ -318,17 +318,17 @@ Create an instance: `roll = client.Roll()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantages` | `list` |  |
-| `attributes` | `dict` |  |
-| `class` | `str` |  |
-| `description` | `str` |  |
-| `disadvantages` | `list` |  |
-| `id` | `str` |  |
-| `items` | `list` |  |
-| `level` | `int` |  |
-| `name` | `str` |  |
-| `race` | `str` |  |
-| `skills` | `list` |  |
+| `advantages` | `list` | Character advantages |
+| `attributes` | `dict` | Character attributes and stats |
+| `class` | `str` | Class of the character |
+| `description` | `str` | Description of the set |
+| `disadvantages` | `list` | Character disadvantages |
+| `id` | `str` | Unique identifier for the character |
+| `items` | `list` | Items included in the set |
+| `level` | `int` | Level of the character |
+| `name` | `str` | Name of the character |
+| `race` | `str` | Race of the character |
+| `skills` | `list` | Character skills |
 
 #### Example: Load
 

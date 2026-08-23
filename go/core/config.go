@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "FantasyRolePlaying",
+			"slug": "fantasy-role-playing",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,14 +37,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
+						"short": "Description of the advantage",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the advantage",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the advantage",
 						"type": "`$STRING`",
 					},
 				},
@@ -104,46 +110,57 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "advantages",
+						"short": "Character advantages",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "attributes",
+						"short": "Character attributes and stats",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "class",
+						"short": "Class of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Description of the set",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "disadvantages",
+						"short": "Character disadvantages",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "items",
+						"short": "Items included in the set",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "level",
+						"short": "Level of the character",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "race",
+						"short": "Race of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "skills",
+						"short": "Character skills",
 						"type": "`$ARRAY`",
 					},
 				},

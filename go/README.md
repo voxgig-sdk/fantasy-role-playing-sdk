@@ -6,7 +6,7 @@ The Golang SDK for the FantasyRolePlaying API — an entity-oriented client usin
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Entity(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -263,9 +263,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"id"` |  |
-| `"name"` |  |
+| `"description"` | Description of the advantage |
+| `"id"` | Unique identifier for the advantage |
+| `"name"` | Name of the advantage |
 
 Operations: List.
 
@@ -275,17 +275,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `"advantages"` |  |
-| `"attributes"` |  |
-| `"class"` |  |
-| `"description"` |  |
-| `"disadvantages"` |  |
-| `"id"` |  |
-| `"items"` |  |
-| `"level"` |  |
-| `"name"` |  |
-| `"race"` |  |
-| `"skills"` |  |
+| `"advantages"` | Character advantages |
+| `"attributes"` | Character attributes and stats |
+| `"class"` | Class of the character |
+| `"description"` | Description of the set |
+| `"disadvantages"` | Character disadvantages |
+| `"id"` | Unique identifier for the character |
+| `"items"` | Items included in the set |
+| `"level"` | Level of the character |
+| `"name"` | Name of the character |
+| `"race"` | Race of the character |
+| `"skills"` | Character skills |
 
 Operations: List, Load.
 
@@ -310,9 +310,9 @@ Create an instance: `entity := client.Entity(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
+| `description` | `string` | Description of the advantage |
+| `id` | `string` | Unique identifier for the advantage |
+| `name` | `string` | Name of the advantage |
 
 #### Example: List
 
@@ -340,17 +340,17 @@ Create an instance: `roll := client.Roll(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantages` | `[]any` |  |
-| `attributes` | `map[string]any` |  |
-| `class` | `string` |  |
-| `description` | `string` |  |
-| `disadvantages` | `[]any` |  |
-| `id` | `string` |  |
-| `items` | `[]any` |  |
-| `level` | `int` |  |
-| `name` | `string` |  |
-| `race` | `string` |  |
-| `skills` | `[]any` |  |
+| `advantages` | `[]any` | Character advantages |
+| `attributes` | `map[string]any` | Character attributes and stats |
+| `class` | `string` | Class of the character |
+| `description` | `string` | Description of the set |
+| `disadvantages` | `[]any` | Character disadvantages |
+| `id` | `string` | Unique identifier for the character |
+| `items` | `[]any` | Items included in the set |
+| `level` | `int` | Level of the character |
+| `name` | `string` | Name of the character |
+| `race` | `string` | Race of the character |
+| `skills` | `[]any` | Character skills |
 
 #### Example: Load
 

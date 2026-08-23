@@ -91,9 +91,9 @@ entity = client.Entity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `id` | `str` | No |  |
-| `name` | `str` | No |  |
+| `description` | `str` | No | Description of the advantage |
+| `id` | `str` | No | Unique identifier for the advantage |
+| `name` | `str` | No | Name of the advantage |
 
 ### Operations
 
@@ -146,17 +146,17 @@ roll = client.Roll()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantages` | `list` | No |  |
-| `attributes` | `dict` | No |  |
-| `class` | `str` | No |  |
-| `description` | `str` | No |  |
-| `disadvantages` | `list` | No |  |
-| `id` | `str` | No |  |
-| `items` | `list` | No |  |
-| `level` | `int` | No |  |
-| `name` | `str` | No |  |
-| `race` | `str` | No |  |
-| `skills` | `list` | No |  |
+| `advantages` | `list` | No | Character advantages |
+| `attributes` | `dict` | No | Character attributes and stats |
+| `class` | `str` | No | Class of the character |
+| `description` | `str` | No | Description of the set |
+| `disadvantages` | `list` | No | Character disadvantages |
+| `id` | `str` | No | Unique identifier for the character |
+| `items` | `list` | No | Items included in the set |
+| `level` | `int` | No | Level of the character |
+| `name` | `str` | No | Name of the character |
+| `race` | `str` | No | Race of the character |
+| `skills` | `list` | No | Character skills |
 
 ### Operations
 

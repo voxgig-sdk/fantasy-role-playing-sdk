@@ -97,9 +97,9 @@ entity = client.Entity
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `id` | `String` | No |  |
-| `name` | `String` | No |  |
+| `description` | `String` | No | Description of the advantage |
+| `id` | `String` | No | Unique identifier for the advantage |
+| `name` | `String` | No | Name of the advantage |
 
 ### Operations
 
@@ -151,17 +151,17 @@ roll = client.Roll
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantages` | `Array` | No |  |
-| `attributes` | `Hash` | No |  |
-| `class` | `String` | No |  |
-| `description` | `String` | No |  |
-| `disadvantages` | `Array` | No |  |
-| `id` | `String` | No |  |
-| `items` | `Array` | No |  |
-| `level` | `Integer` | No |  |
-| `name` | `String` | No |  |
-| `race` | `String` | No |  |
-| `skills` | `Array` | No |  |
+| `advantages` | `Array` | No | Character advantages |
+| `attributes` | `Hash` | No | Character attributes and stats |
+| `class` | `String` | No | Class of the character |
+| `description` | `String` | No | Description of the set |
+| `disadvantages` | `Array` | No | Character disadvantages |
+| `id` | `String` | No | Unique identifier for the character |
+| `items` | `Array` | No | Items included in the set |
+| `level` | `Integer` | No | Level of the character |
+| `name` | `String` | No | Name of the character |
+| `race` | `String` | No | Race of the character |
+| `skills` | `Array` | No | Character skills |
 
 ### Operations
 

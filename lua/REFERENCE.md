@@ -94,9 +94,9 @@ local entity = client:Entity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
-| `name` | `string` | No |  |
+| `description` | `string` | No | Description of the advantage |
+| `id` | `string` | No | Unique identifier for the advantage |
+| `name` | `string` | No | Name of the advantage |
 
 ### Operations
 
@@ -148,17 +148,17 @@ local roll = client:Roll(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantages` | `table` | No |  |
-| `attributes` | `table` | No |  |
-| `class` | `string` | No |  |
-| `description` | `string` | No |  |
-| `disadvantages` | `table` | No |  |
-| `id` | `string` | No |  |
-| `items` | `table` | No |  |
-| `level` | `number` | No |  |
-| `name` | `string` | No |  |
-| `race` | `string` | No |  |
-| `skills` | `table` | No |  |
+| `advantages` | `table` | No | Character advantages |
+| `attributes` | `table` | No | Character attributes and stats |
+| `class` | `string` | No | Class of the character |
+| `description` | `string` | No | Description of the set |
+| `disadvantages` | `table` | No | Character disadvantages |
+| `id` | `string` | No | Unique identifier for the character |
+| `items` | `table` | No | Items included in the set |
+| `level` | `number` | No | Level of the character |
+| `name` | `string` | No | Name of the character |
+| `race` | `string` | No | Race of the character |
+| `skills` | `table` | No | Character skills |
 
 ### Operations
 

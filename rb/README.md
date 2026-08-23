@@ -239,9 +239,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `name` |  |
+| `description` | Description of the advantage |
+| `id` | Unique identifier for the advantage |
+| `name` | Name of the advantage |
 
 Operations: List.
 
@@ -251,17 +251,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` |  |
-| `attributes` |  |
-| `class` |  |
-| `description` |  |
-| `disadvantages` |  |
-| `id` |  |
-| `items` |  |
-| `level` |  |
-| `name` |  |
-| `race` |  |
-| `skills` |  |
+| `advantages` | Character advantages |
+| `attributes` | Character attributes and stats |
+| `class` | Class of the character |
+| `description` | Description of the set |
+| `disadvantages` | Character disadvantages |
+| `id` | Unique identifier for the character |
+| `items` | Items included in the set |
+| `level` | Level of the character |
+| `name` | Name of the character |
+| `race` | Race of the character |
+| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -286,9 +286,9 @@ Create an instance: `entity = client.Entity`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
-| `id` | `String` |  |
-| `name` | `String` |  |
+| `description` | `String` | Description of the advantage |
+| `id` | `String` | Unique identifier for the advantage |
+| `name` | `String` | Name of the advantage |
 
 #### Example: List
 
@@ -313,17 +313,17 @@ Create an instance: `roll = client.Roll`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantages` | `Array` |  |
-| `attributes` | `Hash` |  |
-| `class` | `String` |  |
-| `description` | `String` |  |
-| `disadvantages` | `Array` |  |
-| `id` | `String` |  |
-| `items` | `Array` |  |
-| `level` | `Integer` |  |
-| `name` | `String` |  |
-| `race` | `String` |  |
-| `skills` | `Array` |  |
+| `advantages` | `Array` | Character advantages |
+| `attributes` | `Hash` | Character attributes and stats |
+| `class` | `String` | Class of the character |
+| `description` | `String` | Description of the set |
+| `disadvantages` | `Array` | Character disadvantages |
+| `id` | `String` | Unique identifier for the character |
+| `items` | `Array` | Items included in the set |
+| `level` | `Integer` | Level of the character |
+| `name` | `String` | Name of the character |
+| `race` | `String` | Race of the character |
+| `skills` | `Array` | Character skills |
 
 #### Example: Load
 

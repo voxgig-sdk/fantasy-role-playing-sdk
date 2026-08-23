@@ -8,16 +8,19 @@ main: kit: entity: entity: {
     {
       name: "description"
       req: false
+      short: "Description of the advantage"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the advantage"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the advantage"
       type: "`$STRING`"
     }
   ]

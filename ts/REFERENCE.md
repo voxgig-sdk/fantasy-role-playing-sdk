@@ -128,9 +128,9 @@ const entity = client.Entity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
-| `name` | `string` | No |  |
+| `description` | `string` | No | Description of the advantage |
+| `id` | `string` | No | Unique identifier for the advantage |
+| `name` | `string` | No | Name of the advantage |
 
 ### Operations
 
@@ -180,17 +180,17 @@ const roll = client.Roll()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantages` | `any[]` | No |  |
-| `attributes` | `Record<string, any>` | No |  |
-| `class` | `string` | No |  |
-| `description` | `string` | No |  |
-| `disadvantages` | `any[]` | No |  |
-| `id` | `string` | No |  |
-| `items` | `any[]` | No |  |
-| `level` | `number` | No |  |
-| `name` | `string` | No |  |
-| `race` | `string` | No |  |
-| `skills` | `any[]` | No |  |
+| `advantages` | `any[]` | No | Character advantages |
+| `attributes` | `Record<string, any>` | No | Character attributes and stats |
+| `class` | `string` | No | Class of the character |
+| `description` | `string` | No | Description of the set |
+| `disadvantages` | `any[]` | No | Character disadvantages |
+| `id` | `string` | No | Unique identifier for the character |
+| `items` | `any[]` | No | Items included in the set |
+| `level` | `number` | No | Level of the character |
+| `name` | `string` | No | Name of the character |
+| `race` | `string` | No | Race of the character |
+| `skills` | `any[]` | No | Character skills |
 
 ### Actions
 

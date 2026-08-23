@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'FantasyRolePlaying',
+        slug: "fantasy-role-playing",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,14 +70,17 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Description of the advantage",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the advantage",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Name of the advantage",
           "type": "`$STRING`"
         }
       ],
@@ -129,46 +143,57 @@ class Config {
       "fields": [
         {
           "name": "advantages",
+          "short": "Character advantages",
           "type": "`$ARRAY`"
         },
         {
           "name": "attributes",
+          "short": "Character attributes and stats",
           "type": "`$OBJECT`"
         },
         {
           "name": "class",
+          "short": "Class of the character",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Description of the set",
           "type": "`$STRING`"
         },
         {
           "name": "disadvantages",
+          "short": "Character disadvantages",
           "type": "`$ARRAY`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the character",
           "type": "`$STRING`"
         },
         {
           "name": "items",
+          "short": "Items included in the set",
           "type": "`$ARRAY`"
         },
         {
           "name": "level",
+          "short": "Level of the character",
           "type": "`$INTEGER`"
         },
         {
           "name": "name",
+          "short": "Name of the character",
           "type": "`$STRING`"
         },
         {
           "name": "race",
+          "short": "Race of the character",
           "type": "`$STRING`"
         },
         {
           "name": "skills",
+          "short": "Character skills",
           "type": "`$ARRAY`"
         }
       ],

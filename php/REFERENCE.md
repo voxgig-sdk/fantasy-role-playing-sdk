@@ -96,9 +96,9 @@ $entity = $client->Entity();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
-| `name` | `string` | No |  |
+| `description` | `string` | No | Description of the advantage |
+| `id` | `string` | No | Unique identifier for the advantage |
+| `name` | `string` | No | Name of the advantage |
 
 ### Operations
 
@@ -150,17 +150,17 @@ $roll = $client->Roll();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `advantages` | `array` | No |  |
-| `attributes` | `array` | No |  |
-| `class` | `string` | No |  |
-| `description` | `string` | No |  |
-| `disadvantages` | `array` | No |  |
-| `id` | `string` | No |  |
-| `items` | `array` | No |  |
-| `level` | `int` | No |  |
-| `name` | `string` | No |  |
-| `race` | `string` | No |  |
-| `skills` | `array` | No |  |
+| `advantages` | `array` | No | Character advantages |
+| `attributes` | `array` | No | Character attributes and stats |
+| `class` | `string` | No | Class of the character |
+| `description` | `string` | No | Description of the set |
+| `disadvantages` | `array` | No | Character disadvantages |
+| `id` | `string` | No | Unique identifier for the character |
+| `items` | `array` | No | Items included in the set |
+| `level` | `int` | No | Level of the character |
+| `name` | `string` | No | Name of the character |
+| `race` | `string` | No | Race of the character |
+| `skills` | `array` | No | Character skills |
 
 ### Operations
 

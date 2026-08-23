@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -290,9 +290,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `name` |  |
+| `description` | Description of the advantage |
+| `id` | Unique identifier for the advantage |
+| `name` | Name of the advantage |
 
 Operations: list.
 
@@ -302,17 +302,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` |  |
-| `attributes` |  |
-| `class` |  |
-| `description` |  |
-| `disadvantages` |  |
-| `id` |  |
-| `items` |  |
-| `level` |  |
-| `name` |  |
-| `race` |  |
-| `skills` |  |
+| `advantages` | Character advantages |
+| `attributes` | Character attributes and stats |
+| `class` | Class of the character |
+| `description` | Description of the set |
+| `disadvantages` | Character disadvantages |
+| `id` | Unique identifier for the character |
+| `items` | Items included in the set |
+| `level` | Level of the character |
+| `name` | Name of the character |
+| `race` | Race of the character |
+| `skills` | Character skills |
 
 Operations: list, load.
 
@@ -337,9 +337,9 @@ Create an instance: `const entity = client.Entity()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
+| `description` | `string` | Description of the advantage |
+| `id` | `string` | Unique identifier for the advantage |
+| `name` | `string` | Name of the advantage |
 
 #### Example: List
 
@@ -363,17 +363,17 @@ Create an instance: `const roll = client.Roll()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantages` | `any[]` |  |
-| `attributes` | `Record<string, any>` |  |
-| `class` | `string` |  |
-| `description` | `string` |  |
-| `disadvantages` | `any[]` |  |
-| `id` | `string` |  |
-| `items` | `any[]` |  |
-| `level` | `number` |  |
-| `name` | `string` |  |
-| `race` | `string` |  |
-| `skills` | `any[]` |  |
+| `advantages` | `any[]` | Character advantages |
+| `attributes` | `Record<string, any>` | Character attributes and stats |
+| `class` | `string` | Class of the character |
+| `description` | `string` | Description of the set |
+| `disadvantages` | `any[]` | Character disadvantages |
+| `id` | `string` | Unique identifier for the character |
+| `items` | `any[]` | Items included in the set |
+| `level` | `number` | Level of the character |
+| `name` | `string` | Name of the character |
+| `race` | `string` | Race of the character |
+| `skills` | `any[]` | Character skills |
 
 #### Example: Load
 

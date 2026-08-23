@@ -234,9 +234,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `name` |  |
+| `description` | Description of the advantage |
+| `id` | Unique identifier for the advantage |
+| `name` | Name of the advantage |
 
 Operations: List.
 
@@ -246,17 +246,17 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` |  |
-| `attributes` |  |
-| `class` |  |
-| `description` |  |
-| `disadvantages` |  |
-| `id` |  |
-| `items` |  |
-| `level` |  |
-| `name` |  |
-| `race` |  |
-| `skills` |  |
+| `advantages` | Character advantages |
+| `attributes` | Character attributes and stats |
+| `class` | Class of the character |
+| `description` | Description of the set |
+| `disadvantages` | Character disadvantages |
+| `id` | Unique identifier for the character |
+| `items` | Items included in the set |
+| `level` | Level of the character |
+| `name` | Name of the character |
+| `race` | Race of the character |
+| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -281,9 +281,9 @@ Create an instance: `local entity = client:Entity(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
+| `description` | `string` | Description of the advantage |
+| `id` | `string` | Unique identifier for the advantage |
+| `name` | `string` | Name of the advantage |
 
 #### Example: List
 
@@ -307,17 +307,17 @@ Create an instance: `local roll = client:Roll(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `advantages` | `table` |  |
-| `attributes` | `table` |  |
-| `class` | `string` |  |
-| `description` | `string` |  |
-| `disadvantages` | `table` |  |
-| `id` | `string` |  |
-| `items` | `table` |  |
-| `level` | `number` |  |
-| `name` | `string` |  |
-| `race` | `string` |  |
-| `skills` | `table` |  |
+| `advantages` | `table` | Character advantages |
+| `attributes` | `table` | Character attributes and stats |
+| `class` | `string` | Class of the character |
+| `description` | `string` | Description of the set |
+| `disadvantages` | `table` | Character disadvantages |
+| `id` | `string` | Unique identifier for the character |
+| `items` | `table` | Items included in the set |
+| `level` | `number` | Level of the character |
+| `name` | `string` | Name of the character |
+| `race` | `string` | Race of the character |
+| `skills` | `table` | Character skills |
 
 #### Example: Load
 
