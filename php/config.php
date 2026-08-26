@@ -42,6 +42,7 @@ class FantasyRolePlayingConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
