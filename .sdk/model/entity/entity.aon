@@ -38,8 +38,10 @@ main: kit: entity: entity: {
         {
           method: "GET"
           orig: "/advantages"
-          parts: [
-            "advantages"
+          segments: [
+            {
+              lit: "advantages"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -49,8 +51,10 @@ main: kit: entity: entity: {
         {
           method: "GET"
           orig: "/disadvantages"
-          parts: [
-            "disadvantages"
+          segments: [
+            {
+              lit: "disadvantages"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -60,8 +64,10 @@ main: kit: entity: entity: {
         {
           method: "GET"
           orig: "/skills"
-          parts: [
-            "skills"
+          segments: [
+            {
+              lit: "skills"
+            }
           ]
           transform: {
             req: "`reqdata`"

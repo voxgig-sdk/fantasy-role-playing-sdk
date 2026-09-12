@@ -86,9 +86,13 @@ main: kit: entity: roll: {
         {
           method: "GET"
           orig: "/roll/character"
-          parts: [
-            "roll"
-            "character"
+          segments: [
+            {
+              lit: "roll"
+            }
+            {
+              lit: "character"
+            }
           ]
           select: {
             "$action": "character"
@@ -101,9 +105,13 @@ main: kit: entity: roll: {
         {
           method: "GET"
           orig: "/roll/set"
-          parts: [
-            "roll"
-            "set"
+          segments: [
+            {
+              lit: "roll"
+            }
+            {
+              lit: "set"
+            }
           ]
           select: {
             "$action": "set"
@@ -121,9 +129,13 @@ main: kit: entity: roll: {
         {
           method: "GET"
           orig: "/roll/item"
-          parts: [
-            "roll"
-            "item"
+          segments: [
+            {
+              lit: "roll"
+            }
+            {
+              lit: "item"
+            }
           ]
           select: {
             "$action": "item"

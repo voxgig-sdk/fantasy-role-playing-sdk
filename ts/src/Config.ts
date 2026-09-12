@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -85,6 +96,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "entity",
       "op": {
         "list": {
@@ -96,42 +111,57 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/advantages",
-              "parts": [
-                "advantages"
+              "segments": [
+                {
+                  "lit": "advantages"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "advantages"
+              ]
             },
             {
               "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/disadvantages",
-              "parts": [
-                "disadvantages"
+              "segments": [
+                {
+                  "lit": "disadvantages"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "disadvantages"
+              ]
             },
             {
               "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/skills",
-              "parts": [
-                "skills"
+              "segments": [
+                {
+                  "lit": "skills"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "skills"
+              ]
             }
           ]
         }
@@ -198,6 +228,10 @@ class Config {
           "type": "`$ARRAY`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "roll",
       "op": {
         "list": {
@@ -209,9 +243,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/roll/character",
-              "parts": [
-                "roll",
-                "character"
+              "segments": [
+                {
+                  "lit": "roll"
+                },
+                {
+                  "lit": "character"
+                }
               ],
               "select": {
                 "$action": "character"
@@ -219,16 +257,24 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "roll",
+                "character"
+              ]
             },
             {
               "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/roll/set",
-              "parts": [
-                "roll",
-                "set"
+              "segments": [
+                {
+                  "lit": "roll"
+                },
+                {
+                  "lit": "set"
+                }
               ],
               "select": {
                 "$action": "set"
@@ -236,7 +282,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.items`"
-              }
+              },
+              "parts": [
+                "roll",
+                "set"
+              ]
             }
           ]
         },
@@ -249,9 +299,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/roll/item",
-              "parts": [
-                "roll",
-                "item"
+              "segments": [
+                {
+                  "lit": "roll"
+                },
+                {
+                  "lit": "item"
+                }
               ],
               "select": {
                 "$action": "item"
@@ -259,7 +313,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.properties`"
-              }
+              },
+              "parts": [
+                "roll",
+                "item"
+              ]
             }
           ]
         }
@@ -275,6 +333,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

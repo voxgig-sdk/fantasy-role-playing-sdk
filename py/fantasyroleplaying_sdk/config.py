@@ -1,6 +1,14 @@
 # FantasyRolePlaying SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -69,6 +77,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "entity",
         "op": {
           "list": {
@@ -80,42 +92,57 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/advantages",
-                "parts": [
-                  "advantages",
+                "segments": [
+                  {
+                    "lit": "advantages",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "advantages",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/disadvantages",
-                "parts": [
-                  "disadvantages",
+                "segments": [
+                  {
+                    "lit": "disadvantages",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "disadvantages",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/skills",
-                "parts": [
-                  "skills",
+                "segments": [
+                  {
+                    "lit": "skills",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "skills",
+                ],
               },
             ],
           },
@@ -182,6 +209,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "roll",
         "op": {
           "list": {
@@ -193,9 +224,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/roll/character",
-                "parts": [
-                  "roll",
-                  "character",
+                "segments": [
+                  {
+                    "lit": "roll",
+                  },
+                  {
+                    "lit": "character",
+                  },
                 ],
                 "select": {
                   "$action": "character",
@@ -204,15 +239,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "roll",
+                  "character",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/roll/set",
-                "parts": [
-                  "roll",
-                  "set",
+                "segments": [
+                  {
+                    "lit": "roll",
+                  },
+                  {
+                    "lit": "set",
+                  },
                 ],
                 "select": {
                   "$action": "set",
@@ -221,6 +264,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.items`",
                 },
+                "parts": [
+                  "roll",
+                  "set",
+                ],
               },
             ],
           },
@@ -233,9 +280,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/roll/item",
-                "parts": [
-                  "roll",
-                  "item",
+                "segments": [
+                  {
+                    "lit": "roll",
+                  },
+                  {
+                    "lit": "item",
+                  },
                 ],
                 "select": {
                   "$action": "item",
@@ -244,6 +295,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.properties`",
                 },
+                "parts": [
+                  "roll",
+                  "item",
+                ],
               },
             ],
           },

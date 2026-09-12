@@ -74,6 +74,10 @@ class FantasyRolePlayingConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'entity',
           'op' => [
             'list' => [
@@ -85,13 +89,18 @@ class FantasyRolePlayingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/advantages',
-                  'parts' => [
-                    'advantages',
+                  'segments' => [
+                    [
+                      'lit' => 'advantages',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'advantages',
                   ],
                 ],
                 [
@@ -99,13 +108,18 @@ class FantasyRolePlayingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/disadvantages',
-                  'parts' => [
-                    'disadvantages',
+                  'segments' => [
+                    [
+                      'lit' => 'disadvantages',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'disadvantages',
                   ],
                 ],
                 [
@@ -113,13 +127,18 @@ class FantasyRolePlayingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/skills',
-                  'parts' => [
-                    'skills',
+                  'segments' => [
+                    [
+                      'lit' => 'skills',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'skills',
                   ],
                 ],
               ],
@@ -187,6 +206,10 @@ class FantasyRolePlayingConfig
               'type' => '`$ARRAY`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'roll',
           'op' => [
             'list' => [
@@ -198,9 +221,13 @@ class FantasyRolePlayingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/roll/character',
-                  'parts' => [
-                    'roll',
-                    'character',
+                  'segments' => [
+                    [
+                      'lit' => 'roll',
+                    ],
+                    [
+                      'lit' => 'character',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'character',
@@ -209,15 +236,23 @@ class FantasyRolePlayingConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [
+                    'roll',
+                    'character',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/roll/set',
-                  'parts' => [
-                    'roll',
-                    'set',
+                  'segments' => [
+                    [
+                      'lit' => 'roll',
+                    ],
+                    [
+                      'lit' => 'set',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'set',
@@ -225,6 +260,10 @@ class FantasyRolePlayingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.items`',
+                  ],
+                  'parts' => [
+                    'roll',
+                    'set',
                   ],
                 ],
               ],
@@ -238,9 +277,13 @@ class FantasyRolePlayingConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/roll/item',
-                  'parts' => [
-                    'roll',
-                    'item',
+                  'segments' => [
+                    [
+                      'lit' => 'roll',
+                    ],
+                    [
+                      'lit' => 'item',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'item',
@@ -248,6 +291,10 @@ class FantasyRolePlayingConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.properties`',
+                  ],
+                  'parts' => [
+                    'roll',
+                    'item',
                   ],
                 ],
               ],

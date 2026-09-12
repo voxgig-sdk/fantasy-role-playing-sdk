@@ -48,6 +48,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "entity",
         ["op"] = {
           ["list"] = {
@@ -59,13 +63,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/advantages",
-                ["parts"] = {
-                  "advantages",
+                ["segments"] = {
+                  {
+                    ["lit"] = "advantages",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "advantages",
                 },
               },
               {
@@ -73,13 +82,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/disadvantages",
-                ["parts"] = {
-                  "disadvantages",
+                ["segments"] = {
+                  {
+                    ["lit"] = "disadvantages",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "disadvantages",
                 },
               },
               {
@@ -87,13 +101,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/skills",
-                ["parts"] = {
-                  "skills",
+                ["segments"] = {
+                  {
+                    ["lit"] = "skills",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "skills",
                 },
               },
             },
@@ -161,6 +180,10 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "roll",
         ["op"] = {
           ["list"] = {
@@ -172,9 +195,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/character",
-                ["parts"] = {
-                  "roll",
-                  "character",
+                ["segments"] = {
+                  {
+                    ["lit"] = "roll",
+                  },
+                  {
+                    ["lit"] = "character",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "character",
@@ -183,15 +210,23 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "roll",
+                  "character",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/set",
-                ["parts"] = {
-                  "roll",
-                  "set",
+                ["segments"] = {
+                  {
+                    ["lit"] = "roll",
+                  },
+                  {
+                    ["lit"] = "set",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "set",
@@ -199,6 +234,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.items`",
+                },
+                ["parts"] = {
+                  "roll",
+                  "set",
                 },
               },
             },
@@ -212,9 +251,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/item",
-                ["parts"] = {
-                  "roll",
-                  "item",
+                ["segments"] = {
+                  {
+                    ["lit"] = "roll",
+                  },
+                  {
+                    ["lit"] = "item",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "item",
@@ -222,6 +265,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.properties`",
+                },
+                ["parts"] = {
+                  "roll",
+                  "item",
                 },
               },
             },
