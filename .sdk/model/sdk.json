@@ -1049,7 +1049,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@voxgig-sdk/fantasy-role-playing-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {

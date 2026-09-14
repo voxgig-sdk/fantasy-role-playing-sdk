@@ -105,7 +105,7 @@ local results, err = client:Entity():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fantasy-role-playing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
 | Python | `voxgig-sdk-fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
 | PHP | `voxgig-sdk/fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/fantasy-role-playing-sdk/go` | `go get github.com/voxgig-sdk/fantasy-role-playing-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Entity():list()
 ### TypeScript
 
 ```ts
-import { FantasyRolePlayingSDK } from '@voxgig-sdk/fantasy-role-playing'
+import { FantasyRolePlayingSDK } from '@voxgig-sdk/fantasy-role-playing-sdk'
 
 const client = new FantasyRolePlayingSDK()
 

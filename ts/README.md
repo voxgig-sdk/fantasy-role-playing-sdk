@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FantasyRolePlayingSDK } from '@voxgig-sdk/fantasy-role-playing'
+import { FantasyRolePlayingSDK } from '@voxgig-sdk/fantasy-role-playing-sdk'
 
 const client = new FantasyRolePlayingSDK()
 ```
@@ -470,7 +470,7 @@ fantasy-role-playing/
 Import the SDK from the package root:
 
 ```ts
-import { FantasyRolePlayingSDK } from '@voxgig-sdk/fantasy-role-playing'
+import { FantasyRolePlayingSDK } from '@voxgig-sdk/fantasy-role-playing-sdk'
 ```
 
 ### Entity state
