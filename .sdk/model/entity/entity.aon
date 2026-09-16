@@ -36,6 +36,12 @@ main: kit: entity: entity: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /advantages"
+            json: "{\"operationId\":\"getAdvantages\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Description of the advantage\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the advantage\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the advantage\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with advantages list\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/advantages"
           segments: [
@@ -49,6 +55,12 @@ main: kit: entity: entity: {
           }
         }
         {
+          contract: {
+            id: "GET /disadvantages"
+            json: "{\"operationId\":\"getDisadvantages\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Description of the disadvantage\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the disadvantage\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the disadvantage\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with disadvantages list\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/disadvantages"
           segments: [
@@ -62,6 +74,12 @@ main: kit: entity: entity: {
           }
         }
         {
+          contract: {
+            id: "GET /skills"
+            json: "{\"operationId\":\"getSkills\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Description of the skill\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the skill\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the skill\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with skills list\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/skills"
           segments: [

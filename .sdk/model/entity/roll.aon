@@ -84,6 +84,12 @@ main: kit: entity: roll: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /roll/character"
+            json: "{\"operationId\":\"rollCharacter\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"advantages\":{\"description\":\"Character advantages\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"attributes\":{\"description\":\"Character attributes and stats\",\"properties\":{\"charisma\":{\"type\":\"integer\"},\"constitution\":{\"type\":\"integer\"},\"dexterity\":{\"type\":\"integer\"},\"intelligence\":{\"type\":\"integer\"},\"strength\":{\"type\":\"integer\"},\"wisdom\":{\"type\":\"integer\"}},\"type\":\"object\"},\"class\":{\"description\":\"Class of the character\",\"type\":\"string\"},\"disadvantages\":{\"description\":\"Character disadvantages\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"id\":{\"description\":\"Unique identifier for the character\",\"type\":\"string\"},\"level\":{\"description\":\"Level of the character\",\"type\":\"integer\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"},\"race\":{\"description\":\"Race of the character\",\"type\":\"string\"},\"skills\":{\"description\":\"Character skills\",\"items\":{\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated character\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/roll/character"
           segments: [
@@ -103,6 +109,12 @@ main: kit: entity: roll: {
           }
         }
         {
+          contract: {
+            id: "GET /roll/set"
+            json: "{\"operationId\":\"rollSet\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"description\":{\"description\":\"Description of the set\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the set\",\"type\":\"string\"},\"items\":{\"description\":\"Items included in the set\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"name\":{\"description\":\"Name of the set\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated set\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/roll/set"
           segments: [
@@ -127,6 +139,12 @@ main: kit: entity: roll: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /roll/item"
+            json: "{\"operationId\":\"rollItem\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"description\":{\"description\":\"Description of the item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the item\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the item\",\"type\":\"string\"},\"properties\":{\"description\":\"Additional properties of the item\",\"type\":\"object\"},\"rarity\":{\"description\":\"Rarity level of the item\",\"type\":\"string\"},\"type\":{\"description\":\"Type or category of the item\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated item\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/roll/item"
           segments: [

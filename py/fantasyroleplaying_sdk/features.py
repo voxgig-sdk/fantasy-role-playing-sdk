@@ -1,12 +1,18 @@
 # FantasyRolePlaying SDK feature factory
 
 from fantasyroleplaying_sdk.feature.base_feature import FantasyRolePlayingBaseFeature
+from fantasyroleplaying_sdk.feature.ratelimit_feature import FantasyRolePlayingRatelimitFeature
+from fantasyroleplaying_sdk.feature.retry_feature import FantasyRolePlayingRetryFeature
 from fantasyroleplaying_sdk.feature.test_feature import FantasyRolePlayingTestFeature
+from fantasyroleplaying_sdk.feature.timeout_feature import FantasyRolePlayingTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FantasyRolePlayingBaseFeature(),
+    "ratelimit": lambda: FantasyRolePlayingRatelimitFeature(),
+    "retry": lambda: FantasyRolePlayingRetryFeature(),
     "test": lambda: FantasyRolePlayingTestFeature(),
+    "timeout": lambda: FantasyRolePlayingTimeoutFeature(),
 }
 
 

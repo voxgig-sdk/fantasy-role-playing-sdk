@@ -25,5 +25,121 @@
         "name": "s7a"
       }
     }
+  },
+  "requests": {
+    "GET /advantages": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAdvantages",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "description": {
+                        "description": "Description of the advantage",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the advantage",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the advantage",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with advantages list"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /disadvantages": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getDisadvantages",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "description": {
+                        "description": "Description of the disadvantage",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the disadvantage",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the disadvantage",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with disadvantages list"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /skills": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getSkills",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "description": {
+                        "description": "Description of the skill",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the skill",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the skill",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with skills list"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

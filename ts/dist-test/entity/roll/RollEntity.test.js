@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.FANTASY_ROLE_PLAYING_TEST_LIVE;
         for (const op of ['list', 'load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'roll.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'roll.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "advantages", "req": false, "short": "Character advantages", "type": "`$ARRAY`", "index$": 0 }, { "active": true, "name": "attributes", "req": false, "short": "Character attributes and stats", "type": "`$OBJECT`", "index$": 1 }, { "active": true, "name": "class", "req": false, "short": "Class of the character", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "description", "req": false, "short": "Description of the set", "type": "`$STRING`", "index$": 3 }, { "active": true, "name": "disadvantages", "req": false, "short": "Character disadvantages", "type": "`$ARRAY`", "index$": 4 }, { "active": true, "name": "id", "req": false, "short": "Unique identifier for the character", "type": "`$STRING`", "index$": 5 }, { "active": true, "name": "items", "req": false, "short": "Items included in the set", "type": "`$ARRAY`", "index$": 6 }, { "active": true, "name": "level", "req": false, "short": "Level of the character", "type": "`$INTEGER`", "index$": 7 }, { "active": true, "name": "name", "req": false, "short": "Name of the character", "type": "`$STRING`", "index$": 8 }, { "active": true, "name": "race", "req": false, "short": "Race of the character", "type": "`$STRING`", "index$": 9 }, { "active": true, "name": "skills", "req": false, "short": "Character skills", "type": "`$ARRAY`", "index$": 10 }], "id": { "field": "id", "name": "id" }, "name": "roll", "op": { "list": { "input": "data", "name": "list", "points": [{ "active": true, "args": {}, "contract": { "id": "GET /roll/character", "json": "{\"operationId\":\"rollCharacter\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"advantages\":{\"description\":\"Character advantages\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"attributes\":{\"description\":\"Character attributes and stats\",\"properties\":{\"charisma\":{\"type\":\"integer\"},\"constitution\":{\"type\":\"integer\"},\"dexterity\":{\"type\":\"integer\"},\"intelligence\":{\"type\":\"integer\"},\"strength\":{\"type\":\"integer\"},\"wisdom\":{\"type\":\"integer\"}},\"type\":\"object\"},\"class\":{\"description\":\"Class of the character\",\"type\":\"string\"},\"disadvantages\":{\"description\":\"Character disadvantages\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"id\":{\"description\":\"Unique identifier for the character\",\"type\":\"string\"},\"level\":{\"description\":\"Level of the character\",\"type\":\"integer\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"},\"race\":{\"description\":\"Race of the character\",\"type\":\"string\"},\"skills\":{\"description\":\"Character skills\",\"items\":{\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated character\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/roll/character", "segments": [{ "lit": "roll" }, { "lit": "character" }], "select": { "$action": "character" }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }, { "active": true, "args": {}, "contract": { "id": "GET /roll/set", "json": "{\"operationId\":\"rollSet\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"description\":{\"description\":\"Description of the set\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the set\",\"type\":\"string\"},\"items\":{\"description\":\"Items included in the set\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"name\":{\"description\":\"Name of the set\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated set\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/roll/set", "segments": [{ "lit": "roll" }, { "lit": "set" }], "select": { "$action": "set" }, "transform": { "req": "`reqdata`", "res": "`body.items`" }, "index$": 1 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": {}, "contract": { "id": "GET /roll/item", "json": "{\"operationId\":\"rollItem\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"description\":{\"description\":\"Description of the item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the item\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the item\",\"type\":\"string\"},\"properties\":{\"description\":\"Additional properties of the item\",\"type\":\"object\"},\"rarity\":{\"description\":\"Rarity level of the item\",\"type\":\"string\"},\"type\":{\"description\":\"Type or category of the item\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated item\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/roll/item", "segments": [{ "lit": "roll" }, { "lit": "item" }], "select": { "$action": "item" }, "transform": { "req": "`reqdata`", "res": "`body.properties`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "roll", "name__orig": "roll", "Name": "Roll", "name_": "roll", "name-": "roll", "NAME": "ROLL", "index$": 1 }, { "active": true, "entity": "roll", "key$": "BasicRollFlow", "kind": "basic", "name": "BasicRollFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": {}, "match": {}, "op": "list", "spec": [], "valid": [{ "apply": "ItemExists", "def": { "ref": "roll_ref01" } }], "index$": 0 }, { "active": true, "data": {}, "input": { "ref": "roll_ref01", "srcdatavar": "roll_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-roll_ref01" } }], "index$": 1 }] }, 'Roll');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -106,12 +104,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID': idmap,
         'FANTASY_ROLE_PLAYING_TEST_LIVE': 'FALSE',
@@ -119,7 +111,13 @@ function basicSetup(extra) {
     });
     idmap = env['FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID'];
     const live = 'TRUE' === env.FANTASY_ROLE_PLAYING_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['FANTASY_ROLE_PLAYING_TEST_ROLL_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.FantasyRolePlayingSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -130,7 +128,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -142,7 +141,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.FANTASY_ROLE_PLAYING_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

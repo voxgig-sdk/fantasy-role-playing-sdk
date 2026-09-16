@@ -9,7 +9,7 @@
         "disadvantages": [],
         "id": "ROLL00",
         "items": [],
-        "level": "s75",
+        "level": 117,
         "name": "s76",
         "race": "s77",
         "skills": []
@@ -22,7 +22,7 @@
         "disadvantages": [],
         "id": "ROLL01",
         "items": [],
-        "level": "se3",
+        "level": 227,
         "name": "se4",
         "race": "se5",
         "skills": []
@@ -35,7 +35,7 @@
         "disadvantages": [],
         "id": "ROLL02",
         "items": [],
-        "level": "s151",
+        "level": 337,
         "name": "s152",
         "race": "s153",
         "skills": []
@@ -51,10 +51,189 @@
         "description": "s1bb",
         "disadvantages": [],
         "items": [],
-        "level": "s1bf",
+        "level": 447,
         "name": "s1c0",
         "race": "s1c1",
         "skills": []
+      }
+    }
+  },
+  "requests": {
+    "GET /roll/character": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "rollCharacter",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "advantages": {
+                      "description": "Character advantages",
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "attributes": {
+                      "description": "Character attributes and stats",
+                      "properties": {
+                        "charisma": {
+                          "type": "integer"
+                        },
+                        "constitution": {
+                          "type": "integer"
+                        },
+                        "dexterity": {
+                          "type": "integer"
+                        },
+                        "intelligence": {
+                          "type": "integer"
+                        },
+                        "strength": {
+                          "type": "integer"
+                        },
+                        "wisdom": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "class": {
+                      "description": "Class of the character",
+                      "type": "string"
+                    },
+                    "disadvantages": {
+                      "description": "Character disadvantages",
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the character",
+                      "type": "string"
+                    },
+                    "level": {
+                      "description": "Level of the character",
+                      "type": "integer"
+                    },
+                    "name": {
+                      "description": "Name of the character",
+                      "type": "string"
+                    },
+                    "race": {
+                      "description": "Race of the character",
+                      "type": "string"
+                    },
+                    "skills": {
+                      "description": "Character skills",
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with generated character"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /roll/set": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "rollSet",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "description": {
+                      "description": "Description of the set",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the set",
+                      "type": "string"
+                    },
+                    "items": {
+                      "description": "Items included in the set",
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "name": {
+                      "description": "Name of the set",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with generated set"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /roll/item": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "rollItem",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "description": {
+                      "description": "Description of the item",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the item",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the item",
+                      "type": "string"
+                    },
+                    "properties": {
+                      "description": "Additional properties of the item",
+                      "type": "object"
+                    },
+                    "rarity": {
+                      "description": "Rarity level of the item",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Type or category of the item",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with generated item"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }
