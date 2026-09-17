@@ -83,13 +83,9 @@ class RollEntityTest < Minitest::Test
     assert roll_ref01_list_result.is_a?(Array)
 
     # LOAD
-    roll_ref01_match_dt0 = {
-      "id" => roll_ref01_data["id"],
-    }
+    roll_ref01_match_dt0 = {}
     roll_ref01_data_dt0_loaded = roll_ref01_ent.load(roll_ref01_match_dt0, nil)
-    roll_ref01_data_dt0_load_result = Helpers.to_map(roll_ref01_data_dt0_loaded.respond_to?(:data_get) ? roll_ref01_data_dt0_loaded.data_get : roll_ref01_data_dt0_loaded)
-    assert !roll_ref01_data_dt0_load_result.nil?
-    assert_equal roll_ref01_data_dt0_load_result["id"], roll_ref01_data["id"]
+    assert !roll_ref01_data_dt0_loaded.nil?
 
   end
 end

@@ -147,22 +147,6 @@ Return the entity name.
 roll = client.Roll
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `advantages` | `Array` | No | Character advantages |
-| `attributes` | `Hash` | No | Character attributes and stats |
-| `class` | `String` | No | Class of the character |
-| `description` | `String` | No | Description of the set |
-| `disadvantages` | `Array` | No | Character disadvantages |
-| `id` | `String` | No | Unique identifier for the character |
-| `items` | `Array` | No | Items included in the set |
-| `level` | `Integer` | No | Level of the character |
-| `name` | `String` | No | Name of the character |
-| `race` | `String` | No | Race of the character |
-| `skills` | `Array` | No | Character skills |
-
 ### Operations
 
 #### `list(reqmatch = nil, ctrl = nil) -> Array`
@@ -178,7 +162,7 @@ results = client.Roll.list
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Roll.load({ "id" => "roll_id" })
+result = client.Roll.load()
 ```
 
 ### Common Methods

@@ -92,14 +92,10 @@ describe("RollEntity", function()
     assert.is_table(roll_ref01_list_result)
 
     -- LOAD
-    local roll_ref01_match_dt0 = {
-      id = roll_ref01_data["id"],
-    }
+    local roll_ref01_match_dt0 = {}
     local roll_ref01_data_dt0_loaded, err = roll_ref01_ent:load(roll_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local roll_ref01_data_dt0_load_result = helpers.to_map(type(roll_ref01_data_dt0_loaded) == 'table' and roll_ref01_data_dt0_loaded.data_get and roll_ref01_data_dt0_loaded:data_get() or roll_ref01_data_dt0_loaded)
-    assert.is_not_nil(roll_ref01_data_dt0_load_result)
-    assert.are.equal(roll_ref01_data_dt0_load_result["id"], roll_ref01_data["id"])
+    assert.is_not_nil(roll_ref01_data_dt0_loaded)
 
   end)
 end)

@@ -307,17 +307,6 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` | Character advantages |
-| `attributes` | Character attributes and stats |
-| `class` | Class of the character |
-| `description` | Description of the set |
-| `disadvantages` | Character disadvantages |
-| `id` | Unique identifier for the character |
-| `items` | Items included in the set |
-| `level` | Level of the character |
-| `name` | Name of the character |
-| `race` | Race of the character |
-| `skills` | Character skills |
 
 Operations: list, load.
 
@@ -364,26 +353,10 @@ Create an instance: `const roll = client.Roll()`
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `advantages` | `any[]` | Character advantages |
-| `attributes` | `Record<string, any>` | Character attributes and stats |
-| `class` | `string` | Class of the character |
-| `description` | `string` | Description of the set |
-| `disadvantages` | `any[]` | Character disadvantages |
-| `id` | `string` | Unique identifier for the character |
-| `items` | `any[]` | Items included in the set |
-| `level` | `number` | Level of the character |
-| `name` | `string` | Name of the character |
-| `race` | `string` | Race of the character |
-| `skills` | `any[]` | Character skills |
-
 #### Example: Load
 
 ```ts
-const roll = await client.Roll().load({ id: 'roll_id' })
+const roll = await client.Roll().load()
 ```
 
 #### Example: List

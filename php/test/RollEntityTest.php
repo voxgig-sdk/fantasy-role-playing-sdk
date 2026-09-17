@@ -93,13 +93,9 @@ class RollEntityTest extends TestCase
         $this->assertIsArray($roll_ref01_list_result);
 
         // LOAD
-        $roll_ref01_match_dt0 = [
-            "id" => $roll_ref01_data["id"],
-        ];
+        $roll_ref01_match_dt0 = [];
         $roll_ref01_data_dt0_loaded = $roll_ref01_ent->load($roll_ref01_match_dt0, null);
-        $roll_ref01_data_dt0_load_result = Helpers::to_map(is_object($roll_ref01_data_dt0_loaded) && method_exists($roll_ref01_data_dt0_loaded, 'data_get') ? $roll_ref01_data_dt0_loaded->data_get() : $roll_ref01_data_dt0_loaded);
-        $this->assertNotNull($roll_ref01_data_dt0_load_result);
-        $this->assertEquals($roll_ref01_data_dt0_load_result["id"], $roll_ref01_data["id"]);
+        $this->assertNotNull($roll_ref01_data_dt0_loaded);
 
     }
 }

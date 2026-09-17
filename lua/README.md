@@ -221,7 +221,7 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local roll, err = client:Roll():load({ id = "example_id" })
+    local roll, err = client:Roll():load()
     if err then error(err) end
     -- roll is the loaded record
 
@@ -246,17 +246,6 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` | Character advantages |
-| `attributes` | Character attributes and stats |
-| `class` | Class of the character |
-| `description` | Description of the set |
-| `disadvantages` | Character disadvantages |
-| `id` | Unique identifier for the character |
-| `items` | Items included in the set |
-| `level` | Level of the character |
-| `name` | Name of the character |
-| `race` | Race of the character |
-| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -303,26 +292,10 @@ Create an instance: `local roll = client:Roll(nil)`
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `advantages` | `table` | Character advantages |
-| `attributes` | `table` | Character attributes and stats |
-| `class` | `string` | Class of the character |
-| `description` | `string` | Description of the set |
-| `disadvantages` | `table` | Character disadvantages |
-| `id` | `string` | Unique identifier for the character |
-| `items` | `table` | Items included in the set |
-| `level` | `number` | Level of the character |
-| `name` | `string` | Name of the character |
-| `race` | `string` | Race of the character |
-| `skills` | `table` | Character skills |
-
 #### Example: Load
 
 ```lua
-local roll, err = client:Roll():load({ id = "roll_id" })
+local roll, err = client:Roll():load()
 ```
 
 #### Example: List
@@ -474,6 +447,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── fantasy-role-playing_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

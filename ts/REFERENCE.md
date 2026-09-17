@@ -176,22 +176,6 @@ Return a copy of the entity options.
 const roll = client.Roll()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `advantages` | `any[]` | No | Character advantages |
-| `attributes` | `Record<string, any>` | No | Character attributes and stats |
-| `class` | `string` | No | Class of the character |
-| `description` | `string` | No | Description of the set |
-| `disadvantages` | `any[]` | No | Character disadvantages |
-| `id` | `string` | No | Unique identifier for the character |
-| `items` | `any[]` | No | Items included in the set |
-| `level` | `number` | No | Level of the character |
-| `name` | `string` | No | Name of the character |
-| `race` | `string` | No | Race of the character |
-| `skills` | `any[]` | No | Character skills |
-
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
@@ -229,7 +213,7 @@ const results = await client.Roll().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Roll().load({ id: 'roll_id' })
+const result = await client.Roll().load()
 ```
 
 ### Common Methods

@@ -31,48 +31,15 @@ class EntityListMatch
 /** Roll entity data model. */
 class Roll
 {
-    public ?array $advantages = null;
-    public ?array $attributes = null;
-    public ?string $class = null;
-    public ?string $description = null;
-    public ?array $disadvantages = null;
-    public ?string $id = null;
-    public ?array $items = null;
-    public ?int $level = null;
-    public ?string $name = null;
-    public ?string $race = null;
-    public ?array $skills = null;
 }
 
 /** Request payload for Roll#load. */
 class RollLoadMatch
 {
-    public ?array $advantages = null;
-    public ?array $attributes = null;
-    public ?string $class = null;
-    public ?string $description = null;
-    public ?array $disadvantages = null;
-    public string $id;
-    public ?array $items = null;
-    public ?int $level = null;
-    public ?string $name = null;
-    public ?string $race = null;
-    public ?array $skills = null;
 }
 
 /** Request payload for Roll#list. */
 class RollListMatch
 {
-    public ?array $advantages = null;
-    public ?array $attributes = null;
-    public ?string $class = null;
-    public ?string $description = null;
-    public ?array $disadvantages = null;
-    public ?string $id = null;
-    public ?array $items = null;
-    public ?int $level = null;
-    public ?string $name = null;
-    public ?string $race = null;
-    public ?array $skills = null;
 }
 

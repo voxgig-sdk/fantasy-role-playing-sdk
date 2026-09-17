@@ -17,43 +17,10 @@
 ---@field name? string
 
 ---@class Roll
----@field advantages? table
----@field attributes? table
----@field class? string
----@field description? string
----@field disadvantages? table
----@field id? string
----@field items? table
----@field level? number
----@field name? string
----@field race? string
----@field skills? table
 
 ---@class RollLoadMatch
----@field advantages? table
----@field attributes? table
----@field class? string
----@field description? string
----@field disadvantages? table
----@field id string
----@field items? table
----@field level? number
----@field name? string
----@field race? string
----@field skills? table
 
 ---@class RollListMatch
----@field advantages? table
----@field attributes? table
----@field class? string
----@field description? string
----@field disadvantages? table
----@field id? string
----@field items? table
----@field level? number
----@field name? string
----@field race? string
----@field skills? table
 
 local M = {}
 

@@ -257,17 +257,6 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` | Character advantages |
-| `attributes` | Character attributes and stats |
-| `class` | Class of the character |
-| `description` | Description of the set |
-| `disadvantages` | Character disadvantages |
-| `id` | Unique identifier for the character |
-| `items` | Items included in the set |
-| `level` | Level of the character |
-| `name` | Name of the character |
-| `race` | Race of the character |
-| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -314,26 +303,10 @@ Create an instance: `roll = client.Roll()`
 | `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `advantages` | `list` | Character advantages |
-| `attributes` | `dict` | Character attributes and stats |
-| `class` | `str` | Class of the character |
-| `description` | `str` | Description of the set |
-| `disadvantages` | `list` | Character disadvantages |
-| `id` | `str` | Unique identifier for the character |
-| `items` | `list` | Items included in the set |
-| `level` | `int` | Level of the character |
-| `name` | `str` | Name of the character |
-| `race` | `str` | Race of the character |
-| `skills` | `list` | Character skills |
-
 #### Example: Load
 
 ```python
-roll = client.Roll().load({"id": "roll_id"})
+roll = client.Roll().load()
 ```
 
 #### Example: List
@@ -485,6 +458,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── fantasyroleplaying_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

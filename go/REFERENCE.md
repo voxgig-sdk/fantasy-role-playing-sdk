@@ -151,22 +151,6 @@ roll := client.Roll(nil)
 fmt.Println(roll.GetName()) // "roll"
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `advantages` | `[]any` | No | Character advantages |
-| `attributes` | `map[string]any` | No | Character attributes and stats |
-| `class` | `string` | No | Class of the character |
-| `description` | `string` | No | Description of the set |
-| `disadvantages` | `[]any` | No | Character disadvantages |
-| `id` | `string` | No | Unique identifier for the character |
-| `items` | `[]any` | No | Items included in the set |
-| `level` | `int` | No | Level of the character |
-| `name` | `string` | No | Name of the character |
-| `race` | `string` | No | Race of the character |
-| `skills` | `[]any` | No | Character skills |
-
 ### Operations
 
 #### `List(reqmatch, ctrl map[string]any) (any, error)`
@@ -186,7 +170,7 @@ fmt.Println(results)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Roll(nil).Load(map[string]any{"id": "roll_id"}, nil)
+result, err := client.Roll(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }

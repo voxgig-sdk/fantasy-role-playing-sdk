@@ -2,60 +2,19 @@
   "existing": {
     "roll": {
       "ROLL00": {
-        "advantages": [],
-        "attributes": {},
-        "class": "s70",
-        "description": "s71",
-        "disadvantages": [],
-        "id": "ROLL00",
-        "items": [],
-        "level": 117,
-        "name": "s76",
-        "race": "s77",
-        "skills": []
+        "id": "ROLL00"
       },
       "ROLL01": {
-        "advantages": [],
-        "attributes": {},
-        "class": "sde",
-        "description": "sdf",
-        "disadvantages": [],
-        "id": "ROLL01",
-        "items": [],
-        "level": 227,
-        "name": "se4",
-        "race": "se5",
-        "skills": []
+        "id": "ROLL01"
       },
       "ROLL02": {
-        "advantages": [],
-        "attributes": {},
-        "class": "s14c",
-        "description": "s14d",
-        "disadvantages": [],
-        "id": "ROLL02",
-        "items": [],
-        "level": 337,
-        "name": "s152",
-        "race": "s153",
-        "skills": []
+        "id": "ROLL02"
       }
     }
   },
   "new": {
     "roll": {
-      "roll_ref01": {
-        "advantages": [],
-        "attributes": {},
-        "class": "s1ba",
-        "description": "s1bb",
-        "disadvantages": [],
-        "items": [],
-        "level": 447,
-        "name": "s1c0",
-        "race": "s1c1",
-        "skills": []
-      }
+      "roll_ref01": {}
     }
   },
   "requests": {

@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicEntityFlow.aon"
-@"BasicRollFlow.aon"
+@"./BasicEntityFlow.aon"
+@"./BasicRollFlow.aon"

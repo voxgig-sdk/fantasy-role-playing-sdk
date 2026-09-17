@@ -146,22 +146,6 @@ Return the entity name.
 $roll = $client->Roll();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `advantages` | `array` | No | Character advantages |
-| `attributes` | `array` | No | Character attributes and stats |
-| `class` | `string` | No | Class of the character |
-| `description` | `string` | No | Description of the set |
-| `disadvantages` | `array` | No | Character disadvantages |
-| `id` | `string` | No | Unique identifier for the character |
-| `items` | `array` | No | Items included in the set |
-| `level` | `int` | No | Level of the character |
-| `name` | `string` | No | Name of the character |
-| `race` | `string` | No | Race of the character |
-| `skills` | `array` | No | Character skills |
-
 ### Operations
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
@@ -177,7 +161,7 @@ $results = $client->Roll()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Roll()->load(["id" => "roll_id"]);
+$result = $client->Roll()->load();
 ```
 
 ### Common Methods

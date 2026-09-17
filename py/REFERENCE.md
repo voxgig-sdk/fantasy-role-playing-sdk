@@ -142,22 +142,6 @@ Return the entity name.
 roll = client.Roll()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `advantages` | `list` | No | Character advantages |
-| `attributes` | `dict` | No | Character attributes and stats |
-| `class` | `str` | No | Class of the character |
-| `description` | `str` | No | Description of the set |
-| `disadvantages` | `list` | No | Character disadvantages |
-| `id` | `str` | No | Unique identifier for the character |
-| `items` | `list` | No | Items included in the set |
-| `level` | `int` | No | Level of the character |
-| `name` | `str` | No | Name of the character |
-| `race` | `str` | No | Race of the character |
-| `skills` | `list` | No | Character skills |
-
 ### Operations
 
 #### `list(reqmatch=None, ctrl=None) -> list`
@@ -175,7 +159,7 @@ for roll in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Roll().load({"id": "roll_id"})
+result = client.Roll().load()
 ```
 
 ### Common Methods

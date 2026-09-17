@@ -28,47 +28,14 @@ type EntityListMatch struct {
 
 // Roll is the typed data model for the roll entity.
 type Roll struct {
-	Advantages *[]any `json:"advantages,omitempty"`
-	Attributes *map[string]any `json:"attributes,omitempty"`
-	Class *string `json:"class,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Disadvantages *[]any `json:"disadvantages,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Level *int `json:"level,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Race *string `json:"race,omitempty"`
-	Skills *[]any `json:"skills,omitempty"`
 }
 
 // RollLoadMatch is the typed request payload for Roll.LoadTyped.
 type RollLoadMatch struct {
-	Advantages *[]any `json:"advantages,omitempty"`
-	Attributes *map[string]any `json:"attributes,omitempty"`
-	Class *string `json:"class,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Disadvantages *[]any `json:"disadvantages,omitempty"`
-	Id string `json:"id"`
-	Items *[]any `json:"items,omitempty"`
-	Level *int `json:"level,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Race *string `json:"race,omitempty"`
-	Skills *[]any `json:"skills,omitempty"`
 }
 
 // RollListMatch is the typed request payload for Roll.ListTyped.
 type RollListMatch struct {
-	Advantages *[]any `json:"advantages,omitempty"`
-	Attributes *map[string]any `json:"attributes,omitempty"`
-	Class *string `json:"class,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Disadvantages *[]any `json:"disadvantages,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Level *int `json:"level,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Race *string `json:"race,omitempty"`
-	Skills *[]any `json:"skills,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

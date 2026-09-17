@@ -105,12 +105,12 @@ local results, err = client:Entity():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fantasy-role-playing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
-| Python | `voxgig-sdk-fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
-| PHP | `voxgig-sdk/fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fantasy-role-playing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/tags) |
+| Python | `voxgig-sdk-fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/tags) |
+| PHP | `voxgig-sdk/fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/fantasy-role-playing-sdk/go` | `go get github.com/voxgig-sdk/fantasy-role-playing-sdk/go@latest` |
-| Ruby | `voxgig-sdk-fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
-| Lua | `voxgig-sdk-fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/releases) |
+| Ruby | `voxgig-sdk-fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/tags) |
+| Lua | `voxgig-sdk-fantasy-role-playing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fantasy-role-playing-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/fantasy-role-playing-sdk/go-cli` | `go install github.com/voxgig-sdk/fantasy-role-playing-sdk/go-cli/cmd/fantasy-role-playing@latest` |
 | Go MCP server | `github.com/voxgig-sdk/fantasy-role-playing-sdk/go-mcp` | `go get github.com/voxgig-sdk/fantasy-role-playing-sdk/go-mcp@latest` |
 

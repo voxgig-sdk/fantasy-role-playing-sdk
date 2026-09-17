@@ -28,43 +28,13 @@ class EntityListMatch(TypedDict, total=False):
     name: str
 
 
-class Roll(TypedDict, total=False):
-    advantages: list
-    attributes: dict
-    description: str
-    disadvantages: list
-    id: str
-    items: list
-    level: int
-    name: str
-    race: str
-    skills: list
+class Roll(TypedDict):
+    pass
 
 
-class RollLoadMatchRequired(TypedDict):
-    id: str
+class RollLoadMatch(TypedDict):
+    pass
 
 
-class RollLoadMatch(RollLoadMatchRequired, total=False):
-    advantages: list
-    attributes: dict
-    description: str
-    disadvantages: list
-    items: list
-    level: int
-    name: str
-    race: str
-    skills: list
-
-
-class RollListMatch(TypedDict, total=False):
-    advantages: list
-    attributes: dict
-    description: str
-    disadvantages: list
-    id: str
-    items: list
-    level: int
-    name: str
-    race: str
-    skills: list
+class RollListMatch(TypedDict):
+    pass

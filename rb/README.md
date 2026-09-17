@@ -251,17 +251,6 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` | Character advantages |
-| `attributes` | Character attributes and stats |
-| `class` | Class of the character |
-| `description` | Description of the set |
-| `disadvantages` | Character disadvantages |
-| `id` | Unique identifier for the character |
-| `items` | Items included in the set |
-| `level` | Level of the character |
-| `name` | Name of the character |
-| `race` | Race of the character |
-| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -309,27 +298,11 @@ Create an instance: `roll = client.Roll`
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `advantages` | `Array` | Character advantages |
-| `attributes` | `Hash` | Character attributes and stats |
-| `class` | `String` | Class of the character |
-| `description` | `String` | Description of the set |
-| `disadvantages` | `Array` | Character disadvantages |
-| `id` | `String` | Unique identifier for the character |
-| `items` | `Array` | Items included in the set |
-| `level` | `Integer` | Level of the character |
-| `name` | `String` | Name of the character |
-| `race` | `String` | Race of the character |
-| `skills` | `Array` | Character skills |
-
 #### Example: Load
 
 ```ruby
 # load returns the ENTITY — call data_get for the Roll record (raises on error).
-roll = client.Roll.load({ "id" => "roll_id" })
+roll = client.Roll.load()
 ```
 
 #### Example: List
@@ -482,6 +455,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── FantasyRolePlaying_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

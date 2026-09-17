@@ -88,13 +88,9 @@ class TestRollEntity:
         assert isinstance(roll_ref01_list_result, list)
 
         # LOAD
-        roll_ref01_match_dt0 = {
-            "id": roll_ref01_data["id"],
-        }
+        roll_ref01_match_dt0 = {}
         roll_ref01_data_dt0_loaded = roll_ref01_ent.load(roll_ref01_match_dt0, None)
-        roll_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(roll_ref01_data_dt0_loaded))
-        assert roll_ref01_data_dt0_load_result is not None
-        assert roll_ref01_data_dt0_load_result["id"] == roll_ref01_data["id"]
+        assert roll_ref01_data_dt0_loaded is not None
 
 
 

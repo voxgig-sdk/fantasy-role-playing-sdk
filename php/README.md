@@ -121,18 +121,15 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = FantasyRolePlayingSDK::test([
-    "entity" => ["roll" => ["test01" => ["id" => "test01"]]],
-]);
+$client = FantasyRolePlayingSDK::test();
 
 // list() returns entity instances (throws on error);
 // call data_get() for the mock record.
-$roll = $client->Roll()->list();
-print_r(array_map(fn($item) => $item->data_get(), $roll));
+$entity = $client->Entity()->list();
+print_r(array_map(fn($item) => $item->data_get(), $entity));
 ```
 
 ### Use a custom fetch function
@@ -265,17 +262,6 @@ API path: `/advantages`
 
 | Field | Description |
 | --- | --- |
-| `advantages` | Character advantages |
-| `attributes` | Character attributes and stats |
-| `class` | Class of the character |
-| `description` | Description of the set |
-| `disadvantages` | Character disadvantages |
-| `id` | Unique identifier for the character |
-| `items` | Items included in the set |
-| `level` | Level of the character |
-| `name` | Name of the character |
-| `race` | Race of the character |
-| `skills` | Character skills |
 
 Operations: List, Load.
 
@@ -323,27 +309,11 @@ Create an instance: `$roll = $client->Roll();`
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `advantages` | `array` | Character advantages |
-| `attributes` | `array` | Character attributes and stats |
-| `class` | `string` | Class of the character |
-| `description` | `string` | Description of the set |
-| `disadvantages` | `array` | Character disadvantages |
-| `id` | `string` | Unique identifier for the character |
-| `items` | `array` | Items included in the set |
-| `level` | `int` | Level of the character |
-| `name` | `string` | Name of the character |
-| `race` | `string` | Race of the character |
-| `skills` | `array` | Character skills |
-
 #### Example: Load
 
 ```php
 // load() returns the ENTITY — call data_get() for the Roll record (throws on error).
-$roll = $client->Roll()->load(["id" => "roll_id"]);
+$roll = $client->Roll()->load();
 ```
 
 #### Example: List
@@ -496,6 +466,7 @@ Use `Helpers::to_map()` to safely validate that a value is an array.
 php/
 ├── fantasyroleplaying_sdk.php          -- Main SDK class
 ├── config.php                     -- Configuration
+├── schema.php                     -- Generated option + entity specs
 ├── features.php                   -- Feature factory
 ├── core/                          -- Core types and context
 ├── entity/                        -- Entity implementations
