@@ -1,0 +1,101 @@
+# Entity: entity
+
+main: kit: entity: entity: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Description of the advantage"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the advantage"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the advantage"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "entity"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /advantages"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/advantages"
+          s: [
+            {
+              lit: "advantages"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /disadvantages"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/disadvantages"
+          s: [
+            {
+              lit: "disadvantages"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /skills"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/skills"
+          s: [
+            {
+              lit: "skills"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

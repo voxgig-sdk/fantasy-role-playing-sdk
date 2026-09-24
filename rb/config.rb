@@ -100,18 +100,21 @@ module FantasyRolePlayingConfig
           "fields" => [
             {
               "name" => "description",
-              "short" => "Description of the advantage",
+              "title" => "Description",
               "type" => "`$STRING`",
+              "short" => "Description of the advantage",
             },
             {
               "name" => "id",
-              "short" => "Unique identifier for the advantage",
+              "title" => "Id",
               "type" => "`$STRING`",
+              "short" => "Unique identifier for the advantage",
             },
             {
               "name" => "name",
-              "short" => "Name of the advantage",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Name of the advantage",
             },
           ],
           "id" => {
@@ -125,7 +128,6 @@ module FantasyRolePlayingConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/advantages",
@@ -134,17 +136,18 @@ module FantasyRolePlayingConfig
                       "lit" => "advantages",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "advantages",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "advantages",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/disadvantages",
@@ -153,17 +156,18 @@ module FantasyRolePlayingConfig
                       "lit" => "disadvantages",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "disadvantages",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "disadvantages",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/skills",
@@ -172,14 +176,16 @@ module FantasyRolePlayingConfig
                       "lit" => "skills",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "skills",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "skills",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -197,7 +203,6 @@ module FantasyRolePlayingConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/roll/character",
@@ -209,20 +214,21 @@ module FantasyRolePlayingConfig
                       "lit" => "character",
                     },
                   ],
-                  "select" => {
-                    "$action" => "character",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
                   "parts" => [
                     "roll",
                     "character",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "character",
+                  },
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/roll/set",
@@ -234,17 +240,19 @@ module FantasyRolePlayingConfig
                       "lit" => "set",
                     },
                   ],
-                  "select" => {
-                    "$action" => "set",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.items`",
-                  },
                   "parts" => [
                     "roll",
                     "set",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.items`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "set",
+                  },
                 },
               ],
             },
@@ -253,7 +261,6 @@ module FantasyRolePlayingConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/roll/item",
@@ -265,17 +272,19 @@ module FantasyRolePlayingConfig
                       "lit" => "item",
                     },
                   ],
-                  "select" => {
-                    "$action" => "item",
-                  },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.properties`",
-                  },
                   "parts" => [
                     "roll",
                     "item",
                   ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.properties`",
+                  },
+                  "args" => {},
+                  "select" => {
+                    "$action" => "item",
+                  },
                 },
               ],
             },

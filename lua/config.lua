@@ -88,18 +88,21 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "description",
-            ["short"] = "Description of the advantage",
+            ["title"] = "Description",
             ["type"] = "`$STRING`",
+            ["short"] = "Description of the advantage",
           },
           {
             ["name"] = "id",
-            ["short"] = "Unique identifier for the advantage",
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
+            ["short"] = "Unique identifier for the advantage",
           },
           {
             ["name"] = "name",
-            ["short"] = "Name of the advantage",
+            ["title"] = "Name",
             ["type"] = "`$STRING`",
+            ["short"] = "Name of the advantage",
           },
         },
         ["id"] = {
@@ -113,7 +116,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/advantages",
@@ -122,17 +124,18 @@ local function make_config()
                     ["lit"] = "advantages",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "advantages",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "advantages",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/disadvantages",
@@ -141,17 +144,18 @@ local function make_config()
                     ["lit"] = "disadvantages",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "disadvantages",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "disadvantages",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/skills",
@@ -160,14 +164,16 @@ local function make_config()
                     ["lit"] = "skills",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "skills",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "skills",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },
@@ -185,7 +191,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/character",
@@ -197,20 +202,21 @@ local function make_config()
                     ["lit"] = "character",
                   },
                 },
-                ["select"] = {
-                  ["$action"] = "character",
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "roll",
                   "character",
                 },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {},
+                ["select"] = {
+                  ["$action"] = "character",
+                },
               },
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/set",
@@ -222,16 +228,18 @@ local function make_config()
                     ["lit"] = "set",
                   },
                 },
-                ["select"] = {
-                  ["$action"] = "set",
+                ["parts"] = {
+                  "roll",
+                  "set",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.items`",
                 },
-                ["parts"] = {
-                  "roll",
-                  "set",
+                ["args"] = {},
+                ["select"] = {
+                  ["$action"] = "set",
                 },
               },
             },
@@ -241,7 +249,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/roll/item",
@@ -253,16 +260,18 @@ local function make_config()
                     ["lit"] = "item",
                   },
                 },
-                ["select"] = {
-                  ["$action"] = "item",
+                ["parts"] = {
+                  "roll",
+                  "item",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.properties`",
                 },
-                ["parts"] = {
-                  "roll",
-                  "item",
+                ["args"] = {},
+                ["select"] = {
+                  ["$action"] = "item",
                 },
               },
             },

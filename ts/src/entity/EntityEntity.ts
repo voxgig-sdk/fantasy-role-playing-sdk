@@ -19,7 +19,6 @@ import type {
   EntityListMatch,
 } from '../FantasyRolePlayingTypes'
 
-// TODO: needs Entity superclass
 class EntityEntity extends FantasyRolePlayingEntityBase<Entity> {
 
   constructor(client: FantasyRolePlayingSDK, entopts: any) {

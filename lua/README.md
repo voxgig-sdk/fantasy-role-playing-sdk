@@ -43,7 +43,7 @@ local entitys, err = client:Entity():list()
 if err then error(err) end
 
 for _, item in ipairs(entitys) do
-  print(item["id"], item["description"])
+  print(item["id"])
 end
 ```
 

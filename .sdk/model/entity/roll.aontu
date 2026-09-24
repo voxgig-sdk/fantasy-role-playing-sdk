@@ -1,0 +1,98 @@
+# Entity: roll
+
+main: kit: entity: roll: {
+
+  alias: field: {}
+
+  name: "roll"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /roll/character"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/roll/character"
+          q: {
+            "$action": "character"
+          }
+          s: [
+            {
+              lit: "roll"
+            }
+            {
+              lit: "character"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /roll/set"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/roll/set"
+          q: {
+            "$action": "set"
+          }
+          s: [
+            {
+              lit: "roll"
+            }
+            {
+              lit: "set"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.items`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /roll/item"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/roll/item"
+          q: {
+            "$action": "item"
+          }
+          s: [
+            {
+              lit: "roll"
+            }
+            {
+              lit: "item"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.properties`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

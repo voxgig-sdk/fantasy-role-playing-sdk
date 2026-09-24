@@ -117,18 +117,21 @@ def make_config():
         "fields": [
           {
             "name": "description",
-            "short": "Description of the advantage",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Description of the advantage",
           },
           {
             "name": "id",
-            "short": "Unique identifier for the advantage",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier for the advantage",
           },
           {
             "name": "name",
-            "short": "Name of the advantage",
+            "title": "Name",
             "type": "`$STRING`",
+            "short": "Name of the advantage",
           },
         ],
         "id": {
@@ -142,7 +145,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/advantages",
@@ -151,17 +153,18 @@ def make_config():
                     "lit": "advantages",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "advantages",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "advantages",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/disadvantages",
@@ -170,17 +173,18 @@ def make_config():
                     "lit": "disadvantages",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "disadvantages",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "disadvantages",
-                ],
+                "args": {},
+                "select": {},
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/skills",
@@ -189,14 +193,16 @@ def make_config():
                     "lit": "skills",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "skills",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "skills",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -214,7 +220,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/roll/character",
@@ -226,20 +231,21 @@ def make_config():
                     "lit": "character",
                   },
                 ],
-                "select": {
-                  "$action": "character",
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "roll",
                   "character",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {
+                  "$action": "character",
+                },
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/roll/set",
@@ -251,17 +257,19 @@ def make_config():
                     "lit": "set",
                   },
                 ],
-                "select": {
-                  "$action": "set",
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.items`",
-                },
                 "parts": [
                   "roll",
                   "set",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.items`",
+                },
+                "args": {},
+                "select": {
+                  "$action": "set",
+                },
               },
             ],
           },
@@ -270,7 +278,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/roll/item",
@@ -282,17 +289,19 @@ def make_config():
                     "lit": "item",
                   },
                 ],
-                "select": {
-                  "$action": "item",
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.properties`",
-                },
                 "parts": [
                   "roll",
                   "item",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.properties`",
+                },
+                "args": {},
+                "select": {
+                  "$action": "item",
+                },
               },
             ],
           },

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EntityEntity = void 0;
 const FantasyRolePlayingEntityBase_1 = require("../FantasyRolePlayingEntityBase");
-// TODO: needs Entity superclass
 class EntityEntity extends FantasyRolePlayingEntityBase_1.FantasyRolePlayingEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

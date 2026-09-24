@@ -1,0 +1,40 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 6
+  metrics: count: method: 6
+
+  entity: entity: {
+    path: "/advantages": {
+      op: list: method: *GET
+    }
+    path: "/disadvantages": {
+      op: list: method: *GET
+    }
+    path: "/skills": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: roll: {
+    path: "/roll/character": {
+      action: "character": {}
+      op: list: method: *GET
+    }
+    path: "/roll/item": {
+      action: "item": {}
+      op: load: method: *GET
+      op: load: transform: res: *("`body.properties`")|top
+    }
+    path: "/roll/set": {
+      action: "set": {}
+      op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
+    }
+  }
+
+}

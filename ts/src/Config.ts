@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,18 +135,21 @@ class Config {
       "fields": [
         {
           "name": "description",
-          "short": "Description of the advantage",
-          "type": "`$STRING`"
+          "title": "Description",
+          "type": "`$STRING`",
+          "short": "Description of the advantage"
         },
         {
           "name": "id",
-          "short": "Unique identifier for the advantage",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for the advantage"
         },
         {
           "name": "name",
-          "short": "Name of the advantage",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Name of the advantage"
         }
       ],
       "id": {
@@ -167,7 +163,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/advantages",
@@ -176,17 +171,18 @@ class Config {
                   "lit": "advantages"
                 }
               ],
-              "select": {},
+              "parts": [
+                "advantages"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "advantages"
-              ]
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/disadvantages",
@@ -195,17 +191,18 @@ class Config {
                   "lit": "disadvantages"
                 }
               ],
-              "select": {},
+              "parts": [
+                "disadvantages"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "disadvantages"
-              ]
+              "args": {},
+              "select": {}
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/skills",
@@ -214,14 +211,16 @@ class Config {
                   "lit": "skills"
                 }
               ],
-              "select": {},
+              "parts": [
+                "skills"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "skills"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }
@@ -239,7 +238,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/roll/character",
@@ -251,20 +249,21 @@ class Config {
                   "lit": "character"
                 }
               ],
-              "select": {
-                "$action": "character"
-              },
+              "parts": [
+                "roll",
+                "character"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "roll",
-                "character"
-              ]
+              "args": {},
+              "select": {
+                "$action": "character"
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/roll/set",
@@ -276,17 +275,19 @@ class Config {
                   "lit": "set"
                 }
               ],
-              "select": {
-                "$action": "set"
-              },
+              "parts": [
+                "roll",
+                "set"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.items`"
               },
-              "parts": [
-                "roll",
-                "set"
-              ]
+              "args": {},
+              "select": {
+                "$action": "set"
+              }
             }
           ]
         },
@@ -295,7 +296,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/roll/item",
@@ -307,17 +307,19 @@ class Config {
                   "lit": "item"
                 }
               ],
-              "select": {
-                "$action": "item"
-              },
+              "parts": [
+                "roll",
+                "item"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.properties`"
               },
-              "parts": [
-                "roll",
-                "item"
-              ]
+              "args": {},
+              "select": {
+                "$action": "item"
+              }
             }
           ]
         }

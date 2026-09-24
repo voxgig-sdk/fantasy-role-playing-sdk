@@ -1,0 +1,40 @@
+# BasicRollFlow
+
+main: kit: flow: BasicRollFlow:
+{
+  entity: "roll",
+  kind: "basic",
+  name: "BasicRollFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "roll_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "roll_ref01",
+        srcdatavar: "roll_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-roll_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRollFlow"
+}

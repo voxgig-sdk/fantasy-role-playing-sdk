@@ -92,18 +92,21 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Description of the advantage",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Description of the advantage",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the advantage",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the advantage",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the advantage",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the advantage",
 					},
 				},
 				"id": map[string]any{
@@ -117,7 +120,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/advantages",
@@ -126,17 +128,18 @@ func MakeConfig() map[string]any {
 										"lit": "advantages",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"advantages",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"advantages",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/disadvantages",
@@ -145,17 +148,18 @@ func MakeConfig() map[string]any {
 										"lit": "disadvantages",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"disadvantages",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"disadvantages",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/skills",
@@ -164,14 +168,16 @@ func MakeConfig() map[string]any {
 										"lit": "skills",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"skills",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"skills",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -189,7 +195,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/roll/character",
@@ -201,20 +206,21 @@ func MakeConfig() map[string]any {
 										"lit": "character",
 									},
 								},
-								"select": map[string]any{
-									"$action": "character",
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"roll",
 									"character",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{
+									"$action": "character",
+								},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/roll/set",
@@ -226,16 +232,18 @@ func MakeConfig() map[string]any {
 										"lit": "set",
 									},
 								},
-								"select": map[string]any{
-									"$action": "set",
+								"parts": []any{
+									"roll",
+									"set",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.items`",
 								},
-								"parts": []any{
-									"roll",
-									"set",
+								"args": map[string]any{},
+								"select": map[string]any{
+									"$action": "set",
 								},
 							},
 						},
@@ -245,7 +253,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/roll/item",
@@ -257,16 +264,18 @@ func MakeConfig() map[string]any {
 										"lit": "item",
 									},
 								},
-								"select": map[string]any{
-									"$action": "item",
+								"parts": []any{
+									"roll",
+									"item",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.properties`",
 								},
-								"parts": []any{
-									"roll",
-									"item",
+								"args": map[string]any{},
+								"select": map[string]any{
+									"$action": "item",
 								},
 							},
 						},

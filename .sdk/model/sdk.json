@@ -24,35 +24,104 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "entity": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "description",
-              "req": false,
-              "short": "Description of the advantage",
-              "type": "`$STRING`"
+          "fields": {
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "Description of the advantage",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the advantage",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the advantage",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the advantage",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the advantage",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -64,70 +133,70 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /advantages",
-                    "json": "{\"operationId\":\"getAdvantages\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Description of the advantage\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the advantage\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the advantage\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with advantages list\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/advantages",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/advantages",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "advantages"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /disadvantages",
-                    "json": "{\"operationId\":\"getDisadvantages\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Description of the disadvantage\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the disadvantage\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the disadvantage\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with disadvantages list\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/disadvantages",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/disadvantages",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "disadvantages"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /skills",
-                    "json": "{\"operationId\":\"getSkills\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Description of the skill\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the skill\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the skill\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with skills list\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/skills",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/skills",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "skills"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -144,7 +213,7 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
+          "fields": {},
           "name": "roll",
           "op": {
             "list": {
@@ -152,18 +221,21 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /roll/character",
-                    "json": "{\"operationId\":\"rollCharacter\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"advantages\":{\"description\":\"Character advantages\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"attributes\":{\"description\":\"Character attributes and stats\",\"properties\":{\"charisma\":{\"type\":\"integer\"},\"constitution\":{\"type\":\"integer\"},\"dexterity\":{\"type\":\"integer\"},\"intelligence\":{\"type\":\"integer\"},\"strength\":{\"type\":\"integer\"},\"wisdom\":{\"type\":\"integer\"}},\"type\":\"object\"},\"class\":{\"description\":\"Class of the character\",\"type\":\"string\"},\"disadvantages\":{\"description\":\"Character disadvantages\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"id\":{\"description\":\"Unique identifier for the character\",\"type\":\"string\"},\"level\":{\"description\":\"Level of the character\",\"type\":\"integer\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"},\"race\":{\"description\":\"Race of the character\",\"type\":\"string\"},\"skills\":{\"description\":\"Character skills\",\"items\":{\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated character\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/roll/character",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/roll/character",
+                  "q": {
+                    "$action": "character"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "roll"
                     },
@@ -171,27 +243,27 @@
                       "lit": "character"
                     }
                   ],
-                  "select": {
-                    "$action": "character"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /roll/set",
-                    "json": "{\"operationId\":\"rollSet\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"description\":{\"description\":\"Description of the set\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the set\",\"type\":\"string\"},\"items\":{\"description\":\"Items included in the set\",\"items\":{\"type\":\"object\"},\"type\":\"array\"},\"name\":{\"description\":\"Name of the set\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated set\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/roll/set",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/roll/set",
+                  "q": {
+                    "$action": "set"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "roll"
                     },
@@ -199,10 +271,7 @@
                       "lit": "set"
                     }
                   ],
-                  "select": {
-                    "$action": "set"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.items`"
                   }
@@ -214,18 +283,21 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /roll/item",
-                    "json": "{\"operationId\":\"rollItem\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"description\":{\"description\":\"Description of the item\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the item\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the item\",\"type\":\"string\"},\"properties\":{\"description\":\"Additional properties of the item\",\"type\":\"object\"},\"rarity\":{\"description\":\"Rarity level of the item\",\"type\":\"string\"},\"type\":{\"description\":\"Type or category of the item\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with generated item\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/roll/item",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/roll/item",
+                  "q": {
+                    "$action": "item"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "roll"
                     },
@@ -233,10 +305,7 @@
                       "lit": "item"
                     }
                   ],
-                  "select": {
-                    "$action": "item"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.properties`"
                   }
@@ -665,13 +734,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -691,13 +760,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -707,17 +776,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "roll_ref01",
                 "srcdatavar": "roll_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
